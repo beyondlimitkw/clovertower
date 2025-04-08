@@ -50,8 +50,7 @@
         <!-- Google Map -->
         <div class="col-md-6">
           <div class="ratio ratio-16x9">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3477.3246905036925!2d48.038271!3d29.314045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9cfe6c9e14a3%3A0x5b85c4a9175e76e0!2sClover%20Center!5e0!3m2!1sen!2skw!4v1688450602065!5m2!1sen!2skw" 
-                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3478.6234911753686!2d48.01252837555762!3d29.322718075295022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9d001a2dca33%3A0x82f550c4acb35197!2sClover%20tower!5e0!3m2!1sen!2skw!4v1744153712581!5m2!1sen!2skw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
           </div>
         </div>
       </div>
@@ -59,44 +58,11 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-dark text-white pt-4">
-    <div class="container">
-      <div class="row text-center text-md-start">
-        <!-- Contact Info -->
-        <div class="col-md-4 mb-4">
-          <h5 class="fw-bold">Contact</h5>
-          <p class="mb-1">Kuwait City, Jabriya – Clover Tower</p>
-          <p class="mb-1">Phone: +965 9921 8992</p>
-          <p class="mb-1">Email: propertymanagement@beyondlimitkw.com</p>
-        </div>
-        <!-- Quick Links -->
-        <div class="col-md-4 mb-4">
-          <h5 class="fw-bold">Quick Links</h5>
-          <ul class="list-unstyled">
-            <li><a class="text-white text-decoration-none" href="about.html">About</a></li>
-            <li><a class="text-white text-decoration-none" href="medical_services.html">Medical Services</a></li>
-            <li><a class="text-white text-decoration-none" href="services.html">Services</a></li>
-            <li><a class="text-white text-decoration-none" href="clinic_types.html">Clinic Types</a></li>
-            <li><a class="text-white text-decoration-none" href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <!-- Social Icons -->
-        <div class="col-md-4 mb-4">
-          <h5 class="fw-bold">Follow Us</h5>
-          <a class="text-white fs-4 me-2" href="https://instagram.com/beyondlimitkw" target="_blank">
-            <i class="bi bi-instagram"></i>
-          </a>
-          <a class="text-white fs-4" href="https://wa.me/96599218992" target="_blank">
-            <i class="bi bi-whatsapp"></i>
-          </a>
-        </div>
-      </div>
-      <hr class="text-white"/>
-      <div class="text-center pb-3">
-        <small>© 2025 Clover Tower. All rights reserved.</small>
-      </div>
-    </div>
-  </footer>
+  <script>
+  fetch("footer.html")
+    .then(res => res.text())
+    .then(data => document.getElementById("footer").innerHTML = data);
+</script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
