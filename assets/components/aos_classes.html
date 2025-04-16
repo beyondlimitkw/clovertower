@@ -1,0 +1,27 @@
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  const aosMap = {
+    "aos-fade": "fade",
+    "aos-fade-up": "fade-up",
+    "aos-fade-down": "fade-down",
+    "aos-fade-left": "fade-left",
+    "aos-fade-right": "fade-right",
+    "aos-zoom-in": "zoom-in",
+    "aos-zoom-out": "zoom-out",
+    "aos-slide-up": "slide-up",
+    "aos-slide-left": "slide-left"
+  };
+
+  Object.keys(aosMap).forEach(cls => {
+    document.querySelectorAll(`.${cls}`).forEach(el => {
+      el.setAttribute("data-aos", aosMap[cls]);
+    });
+  });
+
+  AOS.init({
+    duration: 800,
+    easing: 'ease-out-cubic',
+    once: false
+  });
+</script>

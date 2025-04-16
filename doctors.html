@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>
+   Our Doctors – Clover Tower Clinics in Kuwait | أطباؤنا في برج كلوفر
+  </title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Meet the experienced doctors and specialists practicing at Clover Tower, Kuwait’s leading medical tower. تعرف على نخبة من الأطباء والمتخصصين في برج كلوفر في الكويت." name="description"/>
+<meta content="Clover Tower doctors, Kuwait medical staff, Jabriya doctors, healthcare Kuwait, أطباء برج كلوفر, عيادات الكويت, أطباء الجابرية, الرعاية الصحية" name="keywords"/>
+<meta content="Beyond Limit Property Management Corp" name="author"/>
+<meta content="Our Doctors – Clover Tower Clinics in Kuwait | أطباؤنا في برج كلوفر" property="og:title"/>
+<meta content="Meet the experienced doctors and specialists practicing at Clover Tower, Kuwait’s leading medical tower. تعرف على نخبة من الأطباء والمتخصصين في برج كلوفر في الكويت." property="og:description"/>
+<meta content="https://www.clover-tower.com/assets/images/logos/clover-share.png" property="og:image"/>
+<meta content="https://www.clover-tower.com/doctors.html" property="og:url"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<link href="assets/images/logos/clovertower_favicon" rel="icon" type="image/png"/>
+<!-- Stylesheets -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="assets/css/clovertower-design-system.css" rel="stylesheet"/>
+<link href="assets/css/layout.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Navigation bar -->
+<div id="navbar">
+</div>
+<section class="section bg-white py-5">
+<div class="container">
+<div class="text-center mb-5">
+<h2 class="fw-bold text-green aos-fade-up" data-aos-delay="0">Meet the experts behind our care</h2>
+<p class="text-muted aos-fade-up" data-aos-delay="100">A trusted group of experienced specialists serving the Clover Tower community.</p>
+</div>
+<!-- Filter Dropdown -->
+<div class="text-center mb-4">
+<select class="form-select w-auto mx-auto" id="specialtyFilter">
+<option value="all">All Specialties</option>
+<option value="pediatrics">Pediatrics</option>
+<option value="orthopedic">Orthopedic</option>
+<option value="ent">ENT</option>
+<option value="radiology">Radiology</option>
+<option value="psychology">Psychology</option>
+<option value="gynecology">Gynecology</option>
+<option value="cardiology">Cardiology</option>
+<option value="dentistry">Dentistry</option>
+<option value="spa">Spa</option>
+<option value="imaging">Imaging</option>
+<option value="general-practitioner">General Practitioner</option>
+<option value="urology">Urology</option>
+<!-- Add more as needed -->
+</select>
+</div>
+<!-- Doctor Cards Grid -->
+<div class="row row-cols-2 row-cols-sm-2 row-cols-md-4 g-4" id="doctorGrid">
+<div class="col aos-zoom-in aos-zoom-in" data-aos-delay="300" data-specialty="orthopedic">
+<div class="card glass-hover h-100 text-center p-3">
+<img alt="Dr. Waleed AlDuelly" class="card-img-top rounded-circle mb-2" src="assets/images/doctors/placeholder-doctor.jpg" style="height: 200px; width: 200px; object-fit: cover; margin: auto;"/>
+<div class="card-body">
+<h6 class="fw-semibold text-green mb-0">Dr. Waleed AlDuelly</h6>
+<small class="text-muted">Orthopedic</small>
+</div>
+</div>
+</div>
+<div class="col aos-zoom-in aos-zoom-in" data-aos-delay="400" data-specialty="pediatrics">
+<div class="card glass-hover h-100 text-center p-3">
+<img alt="Dr. Mariam AlWadi" class="card-img-top rounded-circle mb-2" src="assets/images/doctors/placeholder-doctor.jpg" style="height: 200px; width: 200px; object-fit: cover; margin: auto;"/>
+<div class="card-body">
+<h6 class="fw-semibold text-green mb-0">Dr. Mariam AlWadi</h6>
+<small class="text-muted">Pediatrics</small>
+</div>
+</div>
+</div>
+<div class="col aos-zoom-in aos-zoom-in" data-aos-delay="500" data-specialty="cardiology">
+<div class="card glass-hover h-100 text-center p-3">
+<img alt="Dr. Ahmad AlKhabbaz" class="card-img-top rounded-circle mb-2" src="assets/images/doctors/placeholder-doctor.jpg" style="height: 200px; width: 200px; object-fit: cover; margin: auto;"/>
+<div class="card-body">
+<h6 class="fw-semibold text-green mb-0">Dr. Ahmad AlKhabbaz</h6>
+<small class="text-muted">Cardiology</small>
+</div>
+</div>
+</div>
+<!-- Add more doctors here using same format -->
+</div>
+</div>
+</section>
+<!-- Footer -->
+<div id="footer">
+</div>
+<!-- Specialty Filter Script -->
+<script>
+  const filter = document.getElementById('specialtyFilter');
+  const items = document.querySelectorAll('#doctorGrid .col');
+
+  filter.addEventListener('change', () => {
+    const selected = filter.value;
+    items.forEach(item => {
+      const specialty = item.dataset.specialty;
+      item.style.display = (selected === 'all' || specialty === selected) ? 'block' : 'none';
+    });
+  });
+</script>
+<script>
+  // Load navbar → footer → then AOS
+  fetch("assets/components/navbar.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+
+      // Highlight active nav link
+      const current = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-link").forEach(link => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+        }
+      });
+
+      // Sticky scroll behavior
+      const navbar = document.querySelector('.navbar-glass');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          navbar?.classList.add('scrolled');
+        } else {
+          navbar?.classList.remove('scrolled');
+        }
+      });
+
+      // Load footer
+      return fetch("assets/components/footer.html");
+    })
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+
+      // Load AOS assets
+      const aosCSS = document.createElement("link");
+      aosCSS.rel = "stylesheet";
+      aosCSS.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
+      document.head.appendChild(aosCSS);
+
+      const aosJS = document.createElement("script");
+      aosJS.src = "https://unpkg.com/aos@2.3.1/dist/aos.js";
+      aosJS.onload = () => {
+        // After AOS script is loaded, assign data-aos attributes
+        const aosMap = {
+          "aos-fade": "fade",
+          "aos-fade-up": "fade-up",
+          "aos-fade-down": "fade-down",
+          "aos-fade-left": "fade-left",
+          "aos-fade-right": "fade-right",
+          "aos-zoom-in": "zoom-in",
+          "aos-zoom-out": "zoom-out",
+          "aos-slide-up": "slide-up",
+          "aos-slide-left": "slide-left"
+        };
+
+        Object.keys(aosMap).forEach(cls => {
+          document.querySelectorAll(`.${cls}`).forEach(el => {
+            el.setAttribute("data-aos", aosMap[cls]);
+          });
+        });
+
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-cubic',
+          once: false
+        });
+      };
+      document.body.appendChild(aosJS);
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
