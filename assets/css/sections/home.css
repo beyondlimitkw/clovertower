@@ -1,0 +1,30 @@
+/* === CTA Section Background Glass === */
+.cta-glass-bg {
+    background: url('../../images/banner/cta-background') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    z-index: 1;
+  }
+  
+  
+  .cta-glass-bg::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.1); /* increase or reduce for opacity */
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 0;
+  }
+  
+  .cta-glass-bg > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .cta-glass-bg h3,
+  .cta-glass-bg p {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  }
+  
