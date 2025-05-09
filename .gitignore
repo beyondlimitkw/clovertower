@@ -1,0 +1,23 @@
+
+# Ignore Python tools
+/generate_sitemap.py
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore backups and archives
+*.zip
+*.bak
+*.tmp
+
+# Node/JS-related (if added later)
+node_modules/
+dist/
+
+# VS Code config
+.vscode/
+
+# OS metadata
+ehthumbs.db
+Icon?
