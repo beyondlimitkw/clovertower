@@ -1,3 +1,7 @@
+/* === CLEANED CLOVERTOWER DESIGN SYSTEM === */
+
+/* ===== CLEANED CLOVERTOWER DESIGN SYSTEM ===== */
+
 /* ===== DESIGN SYSTEM ===== */
 /* ===== DESIGN SYSTEM ===== */
 
@@ -5,28 +9,28 @@
 /* --- Typography & Colors --- */
 /* Typography */
 body {
-font-family: 'Poppins', sans-serif;
-font-family: 'Poppins', sans-serif;
+
+  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
   color: var(--dark-text);
   line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5 {
-font-weight: 600;
-font-weight: 600;
+
+  font-weight: 600;
   color: var(--clover-green);
 }
 
 p {
-color: var(--light-text);
-color: var(--light-text);
+
+  color: var(--light-text);
 }
 
 /* Section spacing */
 .fullscreen-section {
-min-height: 100vh;
-min-height: 100vh;
+
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center; /* centers content vertically */
@@ -34,7 +38,8 @@ min-height: 100vh;
 
 /* Whatsapp Floating */
 .whatsapp-float {
-position: fixed;
+
+  position: fixed;
   bottom: 20px;
   right: 20px;
   background: #2D9F40;
@@ -47,14 +52,16 @@ position: fixed;
 
 /* Pages Banner */ 
 .banner-space {
-padding-top: 100px;
+
+  padding-top: 100px;
   padding-bottom: 40px;
 }
 
 /* --- Buttons --- */
 /* Whatsapp Floating */
 .whatsapp-float {
-position: fixed;
+
+  position: fixed;
   bottom: 20px;
   right: 20px;
   background: #2D9F40;
@@ -65,53 +72,40 @@ position: fixed;
   z-index: 999;
 }
 
-/* Pages Banner */ 
-.banner-space {
-padding-top: 100px;
-  padding-bottom: 40px;
-}
-
 /* --- Buttons --- */
 /* Buttons */
 .btn-brand {
-background-color: var(--clover-green);
-background-color: var(--clover-green);
+
+  background-color: var(--clover-green);
   color: var(--white);
   border: none;
   border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
 }
 
-
 .btn-brand:hover {
-background-color: #248534;
-background-color: #248534;
+
+  background-color: #248534;
   color: white;
 }
 
 .btn-outline-brand {
-border: 2px solid var(--clover-green);
-border: 2px solid var(--clover-green);
+
+  border: 2px solid var(--clover-green);
   color: var(--clover-green);
   border-radius: 0.5rem;
 }
 
-
 .btn-outline-brand:hover {
-background-color: var(--clover-green);
-background-color: var(--clover-green);
+
+  background-color: var(--clover-green);
   color: white;
 }
 
 /* --- Cards & Components --- */
 .bg-glass {
-background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-/* --- Cards & Components --- */
-.bg-glass {
-background: var(--glass-bg);
+
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
@@ -119,8 +113,8 @@ background: var(--glass-bg);
 
 /* Glass Hover Base */
 .glass-hover {
-background: rgba(255, 255, 255, 0.15);
-background: rgba(255, 255, 255, 0.15);
+
+  background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.25);
@@ -131,8 +125,8 @@ background: rgba(255, 255, 255, 0.15);
 
 /* Hover effect */
 .glass-hover:hover {
-background: rgba(255, 255, 255, 0.25);
-background: rgba(255, 255, 255, 0.25);
+
+  background: rgba(255, 255, 255, 0.25);
   transform: scale(1.03);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -143,7 +137,8 @@ background: rgba(255, 255, 255, 0.25);
 
 /* Color Palette */
 :root {
---clover-green: #2D9F40;
+
+  --clover-green: #2D9F40;
   --mint-green: #f2fdf7;
   --dark-text: #2A2A2A;
   --light-text: #6C757D;
@@ -157,61 +152,30 @@ background: rgba(255, 255, 255, 0.25);
 
 /* Background Utilities */
 .bg-white {
-background-color: var(--white);
+
+  background-color: var(--white);
 }
 
 .bg-light-gray {
-background-color: #f9f9f9;
+
+  background-color: #f9f9f9;
 }
 
 .bg-light-green {
-background-color: #f2fdf7;
+
+  background-color: #f2fdf7;
 }
 
 #doctorList,
 #clinicList {
-transition: opacity 0.4s ease;
-}
 
-/* --- Uncategorized --- */
-/* === Clover Tower Base Design System === */
-
-/* Color Palette */
-:root {
---clover-green: #2D9F40;
-  --mint-green: #f2fdf7;
-  --dark-text: #2A2A2A;
-  --light-text: #6C757D;
-  --white: #FFFFFF;
-  --bg-fade-start: #f4fdf7;
-  --bg-fade-end: #eafaf0;
-  --glass-bg: rgba(255, 255, 255, 0.2);
-  --glass-border: rgba(255, 255, 255, 0.25);
-  --hover-shadow: rgba(45, 159, 64, 0.25);
-}
-
-/* Background Utilities */
-.bg-white {
-background-color: var(--white);
-}
-
-.bg-light-gray {
-background-color: #f9f9f9;
-}
-
-.bg-light-green {
-background-color: #f2fdf7;
-}
-
-#doctorList,
-#clinicList {
-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
 }
 
 /* Icon Circle */
 .icon-circle {
-width: 60px;
-width: 60px;
+
+  width: 60px;
   height: 60px;
   background-color: rgba(45, 159, 64, 0.1);
   color: var(--clover-green);
@@ -225,6 +189,7 @@ width: 60px;
 
 /* === Refined Glass Card Style === */
 .card-glass {
+
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -235,12 +200,13 @@ width: 60px;
 }
 
 .card-glass:hover {
+
   transform: translateY(-5px);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-
 .card.card-glass {
+
   background: rgba(255, 255, 255, 0.15) !important;
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
@@ -251,6 +217,7 @@ width: 60px;
 }
 
 .card.card-glass:hover {
+
   transform: translateY(-5px) !important;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12) !important;
 }
