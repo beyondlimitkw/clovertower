@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Meet our experienced doctors at Clover Tower, specializing in a variety of medical fields.">
-<meta name="keywords" content="Clover Tower, Doctors, Medical Clinics, Kuwait, Specialists, Healthcare">
-<meta name="author" content="Clover Tower">
-
-<title>Doctors - Clover Tower</title>
-<link rel="stylesheet" href="assets/css/clovertower-design-system.css">
-<link rel="stylesheet" href="assets/css/layout.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore clinics and medical services at Clover Tower, Jabriya." />
+  <meta name="keywords" content="Clover Tower, Mazaya, CloverCenter, مزايا, مركز كلوفر, عيادات الكويت, Doctors Kuwait" />
+  <meta name="author" content="Beyond Limit Property Management" />
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <title>Doctors - Clover Tower</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="assets/css/clovertower-design-system.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
 </head>
 <body>
 <!-- Navigation bar -->
 <div id="navbar">
 </div>
 
+<section class="py-5 banner-space text-center bg-light">
+  <div class="container">
+    <h1 class="text-green mb-3">Our Doctors</h1>
+    <p class="text-muted">Meet the experienced medical professionals at Clover Tower.</p>
+  </div>
+</section>
 
 
 <section class="container py-5">
@@ -31,10 +34,12 @@
   document.addEventListener("DOMContentLoaded", () => {
     loadCards({
       file: "assets/components/doctor-cards.html",
-      targetId: "doctorCards"
+      targetId: "doctorCards",
+      prioritizeImages: true
     });
   });
   </script>
+  
   
 
 <!-- Footer -->

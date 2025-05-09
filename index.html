@@ -2,26 +2,36 @@
 
 <html lang="en">
 <head>
-<title>
-   Clover Tower – Kuwait’s Premier Medical Facility | برج كلوفر – مركز طبي مميز في الكويت
-  </title>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Clover Tower is a state-of-the-art medical tower in Jabriya, Kuwait, offering diverse clinics under one roof. Managed by Beyond Limit Property Management. برج كلوفر في الجابرية يضم عيادات متعددة التخصصات تحت سقف واحد بإدارة بيوند لمت." name="description"/>
-<meta content="Clover Tower, medical tower Kuwait, clinics Kuwait, Jabriya health, Beyond Limit, برج كلوفر, الجابرية, عيادات الكويت, الرعاية الصحية, بيوند لمت لإدارة الأملاك" name="keywords"/>
-<meta content="Beyond Limit Property Management Corp" name="author"/>
-<meta content="Clover Tower – Kuwait’s Premier Medical Facility | برج كلوفر – مركز طبي مميز في الكويت" property="og:title"/>
-<meta content="Clover Tower is a state-of-the-art medical tower in Jabriya, Kuwait, offering diverse clinics under one roof. Managed by Beyond Limit Property Management. برج كلوفر في الجابرية يضم عيادات متعددة التخصصات تحت سقف واحد بإدارة بيوند لمت." property="og:description"/>
-<meta content="https://www.clover-tower.com/assets/images/logos/clover-share.png" property="og:image"/>
-<meta content="https://www.clover-tower.com/" property="og:url"/>
-<meta content="summary_large_image" name="twitter:card"/>
-<link rel="icon" type="image/png" href="assets/images/logos/clovertower_favicon.png" />
-<!-- Stylesheets -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
-<link href="assets/css/clovertower-design-system.css" rel="stylesheet"/>
-<link href="assets/css/sections/home.css" rel="stylesheet"/>
-<link href="assets/css/layout.css" rel="stylesheet"/>
+  <!-- Metadata -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clover Tower is a state-of-the-art medical tower in Jabriya, Kuwait, offering diverse clinics under one roof." />
+  <meta name="keywords" content="Clover Tower, Clover, CloverCenter, Mazaya, AlMazaya Holding, مزايا, كلوفر, عيادات, أطباء, برج طبي الكويت, Kuwait clinics" />
+  <meta name="author" content="Beyond Limit Property Management" />
+  <title>Clover Tower | Kuwait’s Premier Medical Facility | برج كلوفر مركز طبي مميز في الكويت</title>
+
+  <!-- Favicon & Icons -->
+  <link rel="icon" href="assets/images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/apple-icon.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Clover Tower | Kuwait’s Premier Medical Facility" />
+  <meta property="og:description" content="Explore leading clinics and doctors in Clover Tower, Jabriya, Kuwait." />
+  <meta property="og:image" content="https://clover-tower.com/assets/images/logos/clover-share.png" />
+  <meta property="og:url" content="https://clover-tower.com/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Clover Tower – Leading Clinics in Kuwait" />
+  <meta name="twitter:description" content="Clover Tower hosts top medical clinics in Jabriya under one tower." />
+  <meta name="twitter:image" content="https://clover-tower.com/assets/images/logos/clover-share.png" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="assets/css/clovertower-design-system.css" />
+  <link rel="stylesheet" href="assets/css/layout.css" />
 </head>
 <body>
 <!-- Navigation bar -->
@@ -85,22 +95,27 @@
 </section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  loadCards({
-    file: "assets/components/doctor-cards.html",
-    targetId: "homeDoctors",
-    limit: 5,
-    filter: el => el.dataset.type === "doctor"
+  document.addEventListener("DOMContentLoaded", () => {
+    loadCards({
+      file: "assets/components/doctor-cards.html",
+      targetId: "homeDoctors",
+      limit: 5,
+      filter: el => el.dataset.type === "doctor",
+      shuffle: true,
+      prioritizeImages: true
+    });
+  
+    loadCards({
+      file: "assets/components/clinic-cards.html",
+      targetId: "homeClinics",
+      limit: 5,
+      filter: el => el.dataset.type === "clinic",
+      shuffle: true,
+      prioritizeImages: true
+    });
   });
-
-  loadCards({
-    file: "assets/components/clinic-cards.html",
-    targetId: "homeClinics",
-    limit: 5,
-    filter: el => el.dataset.type === "clinic"
-  });
-});
-</script>
+  </script>
+  
 
 
   
