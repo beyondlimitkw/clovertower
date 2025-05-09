@@ -1,6 +1,9 @@
 /* ===== LAYOUT ===== */
 
 /* --- Typography & Colors --- */
+/* ===== LAYOUT ===== */
+
+/* --- Typography & Colors --- */
 /* Navbar */
 body {
 padding-top: 89px; /* or whatever your navbar height is */
@@ -21,6 +24,7 @@ padding-top: 89px; /* or whatever your navbar height is */
 /* Upgraded card hover effect */
 .card.card-glass:hover {
 box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   transform: translateY(-5px) scale(1.04);
   transition: all 0.4s ease;
 }
@@ -28,12 +32,14 @@ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 /* Specialty Title Underline Separator */
 .specialty-header {
 position: relative;
+position: relative;
   display: inline-block;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
 
 .specialty-header::after {
+content: "";
 content: "";
   position: absolute;
   left: 50%;
@@ -45,6 +51,73 @@ content: "";
   border-radius: 2px;
 }
 
+/* Ensure card links are fully clickable */
+a.text-decoration-none.text-reset {
+display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* --- Cards & Components --- */
+.navbar-glass {
+background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  opacity: 0;
+  animation: fadeInTop 0.8s ease-out 0.3s forwards;
+}
+
+/* Scroll behavior */
+.navbar-glass.scrolled {
+background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* Smoother transitions for all hover effects */
+.card.card-glass {
+transition: all 0.35s ease-in-out;
+}
+
+.card.card-glass:hover {
+transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Layout & Sections --- */
+.section-divider {
+width: 80px;
+  height: 4px;
+  background: #1fa463;
+  margin: 3rem auto;
+  border-radius: 3px;
+}
+
+.section-divider.white {
+background-color: white;
+}
+
+.section-divider.green {
+background-color: #1fa463;
+}
+
+.section-divider.fade {
+background: linear-gradient(to right, transparent, #1fa463, transparent);
+}
+
+/* --- Uncategorized --- */
+to {
+transform: translateY(0); opacity: 1;
+}
 /* Ensure card links are fully clickable */
 a.text-decoration-none.text-reset {
 display: block;
