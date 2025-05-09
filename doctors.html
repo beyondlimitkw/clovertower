@@ -28,11 +28,14 @@
 </section>
 
 <script>
-loadCards({
-  file: "assets/components/doctor-cards.html",
-  targetId: "doctorCards"
-});
-</script>
+  document.addEventListener("DOMContentLoaded", () => {
+    loadCards({
+      file: "assets/components/doctor-cards.html",
+      targetId: "doctorCards"
+    });
+  });
+  </script>
+  
 
 <!-- Footer -->
 <div id="footer"></div>
