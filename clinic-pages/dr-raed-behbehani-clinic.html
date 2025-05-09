@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DR. RAED BEHBEHANI CLINIC – Clover Tower</title>
+  <link rel="icon" href="../assets/images/logos/clovertower_favicon.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../assets/css/clovertower-design-system.css" rel="stylesheet" />
+  <link href="../assets/css/layout.css" rel="stylesheet" />
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="section fullscreen-section py-5 bg-white">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-md-4 text-center">
+          <img src="../assets/images/doctors-&-clinics/placeholder-clinic.png" alt="DR. RAED BEHBEHANI CLINIC" class="img-fluid rounded-circle shadow" style="max-width: 250px;">
+        </div>
+        <div class="col-md-8">
+          <h2 class="fw-bold text-green">DR. RAED BEHBEHANI CLINIC</h2>
+          <p class="text-muted mb-1"><strong>Specialty:</strong> ophthalmology</p>
+          
+          
+          <ul class="list-unstyled mt-3">
+            
+            
+            
+            
+            
+            <li><i class="bi bi-building text-success me-2"></i> Location: Floor 16th, Unit A</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    fetch("../assets/components/navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar").innerHTML = data;
+        return fetch("../assets/components/footer.html");
+      })
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+  
+</body>
+</html>
