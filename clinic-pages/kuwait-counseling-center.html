@@ -1,77 +1,49 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore clinics and medical services at Clover Tower, Jabriya." />
-  <meta name="keywords" content="Clover Tower, Mazaya, CloverCenter, مزايا, مركز كلوفر, عيادات الكويت, Doctors Kuwait" />
-  <meta name="author" content="Beyond Limit Property Management" />
-  <link rel="icon" href="../assets/images/logos/clovertower_favicon.png" type="image/png" />
-  <title>KUWAIT COUNSELING CENTER – Clover Tower</title>
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="KUWAIT COUNSELING CENTER – Clover Tower" />
-  <meta property="og:description" content="Learn more about this page at Clover Tower in Jabriya, Kuwait." />
-  <meta property="og:image" content="https://clover-tower.com/assets/images/logos/opengraph.png" />
-  <meta property="og:url" content="https://clover-tower.com" />
-  <meta property="og:type" content="website" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KUWAIT COUNSELING CENTER – Clover Tower" />
-  <meta name="twitter:description" content="Learn more about this page at Clover Tower in Jabriya, Kuwait." />
-  <meta name="twitter:image" content="https://clover-tower.com/assets/images/logos/opengraph.png" />
-
-  <link rel="apple-touch-icon" href="../assets/images/logos/apple-icon.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="../assets/css/clovertower-design-system.css" />
-  <link rel="stylesheet" href="../assets/css/layout.css" />
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Kuwait Counseling Center – Clover Tower</title>
+<link href="../assets/images/logos/clovertower_favicon.png" rel="icon" type="image/png"/>
+<link href="../assets/images/logos/apple-icon.png" rel="apple-touch-icon"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="../assets/css/clovertower-design-system.css" rel="stylesheet"/>
+<link href="../assets/css/layout.css" rel="stylesheet"/>
 </head>
 <body>
-  <div id="navbar"></div>
-
-  <section class="section fullscreen-section py-5 bg-white">
-    <div class="container">
-      <div class="row g-4 align-items-center">
-        <div class="col-md-4 text-center">
-          <img src="../assets/images/doctors-&-clinics/placeholder-clinic.png" alt="KUWAIT COUNSELING CENTER" class="img-fluid rounded-circle shadow" style="max-width: 250px;">
-        </div>
-        <div class="col-md-8">
-          <h2 class="fw-bold text-green">KUWAIT COUNSELING CENTER</h2>
-          <p class="text-muted mb-1"><strong>Specialty:</strong> CLINIC PSYCHIATRY</p>
-          <p><strong>Services:</strong> Psychological, Educational, Nutritional, Speech, OT, Behavior Therapy, Assessments, Trainings</p>
-          <p><strong>Credentials:</strong> APA Code Compliant</p>
-          <ul class="list-unstyled mt-3">
-            
-            
-            <li><i class="bi bi-telephone text-success me-2"></i> 2535-6999 / 97210070</li>
-            
-            
-            <li><i class="bi bi-building text-success me-2"></i> Location: Floor 14th, Unit A</li>
-          </ul>
-        </div>
+<div id="navbar"></div>
+<section class="fullscreen-section bg-white">
+  <div class="container">
+    <div class="row g-4 align-items-center justify-content-center text-center text-md-start">
+      <div class="col-md-4 text-center">
+        <img src="../assets/images/doctors-&-clinics/placeholder-clinic.png" alt="Kuwait Counseling Center" class="img-fluid rounded-circle shadow" style="max-width: 250px;">
+      </div>
+      <div class="col-md-8">
+        <h2 class="fw-bold text-green">Kuwait Counseling Center</h2>
+        <p class="text-muted mb-1"><strong>Specialty:</strong> psycology</p>
+        <p><strong>Services:</strong> Psychological, Educational, Nutritional, Speech, OT, Behavior Therapy, Assessments, Trainings</p>
+        <p><strong>Credentials:</strong> APA Code Compliant</p>
+        <ul class="list-unstyled mt-3">
+          <li><i class="bi bi-telephone text-success me-2"></i> 2535-6999 / 97210070</li><li><i class="bi bi-building text-success me-2"></i> Location: Floor 14th</li>
+        </ul>
       </div>
     </div>
-  </section>
-
-  <div id="footer"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script>
-    fetch("../assets/components/navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-        return fetch("../assets/components/footer.html");
-      })
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
-  
+  </div>
+</section>
+<div id="footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+fetch("../assets/components/navbar.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("navbar").innerHTML = data;
+    return fetch("../assets/components/footer.html");
+  })
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
 </body>
 </html>
