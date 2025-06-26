@@ -1,68 +1,63 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Explore clinics and medical services at Clover Tower, Jabriya." name="description"/>
-<meta content="Clover Tower, Mazaya, CloverCenter, مزايا, مركز كلوفر, عيادات الكويت, Doctors Kuwait" name="keywords"/>
-<meta content="Beyond Limit Property Management" name="author"/>
+<title>Images Diagnostic Center – Clover Tower</title>
 <link href="../assets/images/logos/clovertower_favicon.png" rel="icon" type="image/png"/>
-<title>IMAGES DIAGNOSTIC CENTER – Clover Tower</title>
-<!-- Open Graph -->
-<meta content="IMAGES DIAGNOSTIC CENTER – Clover Tower" property="og:title"/>
-<meta content="Learn more about this page at Clover Tower in Jabriya, Kuwait." property="og:description"/>
-<meta content="https://clover-tower.com/assets/images/logos/opengraph.png" property="og:image"/>
-<meta content="https://clover-tower.com" property="og:url"/>
-<meta content="website" property="og:type"/>
-<!-- Twitter Card -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="IMAGES DIAGNOSTIC CENTER – Clover Tower" name="twitter:title"/>
-<meta content="Learn more about this page at Clover Tower in Jabriya, Kuwait." name="twitter:description"/>
-<meta content="https://clover-tower.com/assets/images/logos/opengraph.png" name="twitter:image"/>
 <link href="../assets/images/logos/apple-icon.png" rel="apple-touch-icon"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
 <link href="../assets/css/clovertower-design-system.css" rel="stylesheet"/>
 <link href="../assets/css/layout.css" rel="stylesheet"/>
-</link></head>
+</head>
 <body>
 <div id="navbar"></div>
 <section class="fullscreen-section bg-white">
-<div class="container">
-<div class="row g-4 align-items-center justify-content-center text-center text-md-start">
-<div class="col-md-4 text-center">
-<img alt="IMAGES DIAGNOSTIC CENTER" class="img-fluid rounded-circle shadow" src="../assets/images/doctors-&amp;-clinics/images-radiology.png" style="max-width: 250px;"/>
-</div>
-<div class="col-md-8">
-<h2 class="fw-bold text-green">IMAGES DIAGNOSTIC CENTER</h2>
-<p class="text-muted mb-1"><strong>Specialty:</strong> IMAGES DIAGNOSTIC CENTER</p>
-<p><strong>Services:</strong> Radiology</p>
-<ul class="list-unstyled mt-3"><li><i class="bi bi-clock text-success me-2"></i> Hours: 8 AM - 12 AM </li><li><i class="bi bi-telephone text-success me-2"></i> 1899888</li><li><i class="bi bi-globe text-success me-2"></i><a href="imagesforhealth.com" target="_blank">imagesforhealth.com</a></li><li><i class="bi bi-instagram text-success me-2"></i><a href="@imagesforheath" target="_blank">@imagesforheath</a></li><li><i class="bi bi-building text-success me-2"></i> Location: Floor 2nd</li></ul>
-</div>
-</div>
-</div>
+  <div class="container">
+    <div class="row g-4 align-items-center justify-content-center text-center text-md-start">
+      <div class="col-md-4 text-center">
+        <img src="../assets/images/doctors-&-clinics/images-radiology.png" alt="Images Diagnostic Center" class="img-fluid rounded-circle shadow" style="max-width: 250px;">
+      </div>
+      <div class="col-md-8">
+        <h2 class="fw-bold text-green">Images Diagnostic Center</h2>
+        <p class="text-muted mb-1"><strong>Specialty:</strong> Radiology</p>
+        <ul><li>MRI</li><li>CT scan</li><li>Ultrasound</li><li>BMD</li><li>Mammogram</li><li>Xray</li></ul>
+        
+        <ul class="list-unstyled mt-3">
+          <li><i class="bi bi-clock text-success me-2"></i> Hours: 8 AM - 12 AM </li><li><i class="bi bi-telephone text-success me-2"></i> 1899888</li>
+    <li><i class="bi bi-globe text-success me-2"></i>
+      <a href="https://www.imagesforhealth.com" target="_blank">English Website</a>
+    </li>
+    <li><i class="bi bi-globe text-success me-2"></i>
+      <a href="https://www.imagesforhealth.com/ar/" target="_blank">Arabic Website</a>
+    </li><li><i class="bi bi-instagram text-success me-2"></i><a href="https://instagram.com/imagesforhealth" target="_blank">@imagesforhealth</a></li><li><i class="bi bi-building text-success me-2"></i> Location: Floor 2nd</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
+
 <section class="section py-5 bg-light text-center">
-<div class="container">
-<h5 class="fw-semibold mb-3">Reception Area</h5>
-<img alt="Images Radiology Floor" class="img-fluid rounded shadow" src="../assets/images/doctors-&amp;-clinics/images-diagnostic-center-extra.jpg" style="max-height: 500px;"/>
-</div>
+  <div class="container">
+    <h5 class="fw-semibold mb-3">Reception Area</h5>
+    <img src="../assets/images/doctors-&-clinics/images-diagnostic-center-extra.jpg" alt="Reception Area" class="img-fluid rounded shadow" style="max-height: 500px;">
+  </div>
 </section>
+
 <div id="footer"></div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    fetch("../assets/components/navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-        return fetch("../assets/components/footer.html");
-      })
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
+fetch("../assets/components/navbar.html")
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("navbar").innerHTML = data;
+    return fetch("../assets/components/footer.html");
+  })
+  .then(res => res.text())
+  .then(data => {
+    document.getElementById("footer").innerHTML = data;
+  });
+</script>
 </body>
 </html>
