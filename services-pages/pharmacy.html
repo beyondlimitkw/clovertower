@@ -1,61 +1,73 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Explore clinics and medical services at Clover Tower, Jabriya." name="description"/>
-<meta content="Clover Tower, Mazaya, CloverCenter, مزايا, مركز كلوفر, عيادات الكويت, Doctors Kuwait" name="keywords"/>
-<meta content="Beyond Limit Property Management" name="author"/>
-<link href="../assets/images/logos/clovertower_favicon.png" rel="icon" type="image/png"/>
-<title>PHARMACY – Clover Tower</title>
-<!-- Open Graph -->
-<meta content="PHARMACY – Clover Tower" property="og:title"/>
-<meta content="Learn more about this page at Clover Tower in Jabriya, Kuwait." property="og:description"/>
-<meta content="https://clover-tower.com/assets/images/logos/opengraph.png" property="og:image"/>
-<meta content="https://clover-tower.com" property="og:url"/>
-<meta content="website" property="og:type"/>
-<!-- Twitter Card -->
-<meta content="summary_large_image" name="twitter:card"/>
-<meta content="PHARMACY – Clover Tower" name="twitter:title"/>
-<meta content="Learn more about this page at Clover Tower in Jabriya, Kuwait." name="twitter:description"/>
-<meta content="https://clover-tower.com/assets/images/logos/opengraph.png" name="twitter:image"/>
-<link href="../assets/images/logos/apple-icon.png" rel="apple-touch-icon"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-<link href="../assets/css/clovertower-design-system.css" rel="stylesheet"/>
-<link href="../assets/css/layout.css" rel="stylesheet"/>
-</link></head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>AlTurki International Pharmacy – Clover Tower</title>
+  <link href="../assets/images/logos/clovertower_favicon.png" rel="icon" type="image/png"/>
+  <link href="../assets/images/logos/apple-icon.png" rel="apple-touch-icon"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="../assets/css/clovertower-design-system.css" rel="stylesheet"/>
+  <link href="../assets/css/layout.css" rel="stylesheet"/>
+</head>
 <body>
+
+<!-- NAVBAR -->
 <div id="navbar"></div>
-<section class="section fullscreen-section py-5 bg-white">
-<div class="container">
-<div class="row g-4 align-items-center">
-<div class="col-md-4 text-center">
-<img alt="PHARMACY" class="img-fluid rounded-circle shadow" src="../assets/images/doctors-&amp;-clinics/placeholder-clinic.png" style="max-width: 250px;"/>
-</div>
-<div class="col-md-8">
-<h2 class="fw-bold text-green">PHARMACY</h2>
-<p class="text-muted mb-1"><strong>Specialty:</strong> ALTURKI PHARMACY</p>
-<ul class="list-unstyled mt-3"><li><i class="bi bi-telephone text-success me-2"></i> 22269355</li><li><i class="bi bi-building text-success me-2"></i> Location: Ground Floor</li></ul>
-</div>
-</div>
-</div>
+
+<!-- CONTENT -->
+<section class="fullscreen-section bg-white">
+  <div class="container">
+    <div class="row g-4 align-items-center justify-content-center text-center text-md-start">
+
+      <!-- Logo / Image -->
+      <div class="col-md-4 text-center">
+        <img src="../assets/images/services/alturki-pharmacy_logo.png" alt="AlTurki Pharmacy Logo"
+             class="img-fluid rounded-circle shadow" style="max-width: 250px;">
+      </div>
+
+      <!-- Info -->
+      <div class="col-md-8">
+        <h2 class="fw-bold text-green">AlTurki International Pharmacy</h2>
+        <p class="text-muted mb-1"><strong>Specialty:</strong> Pharmacy</p>
+        <ul class="mb-3">
+          <li>All your pharmaceutical needs.</li>
+        </ul>
+
+        <ul class="list-unstyled mt-3">
+          <li><i class="bi bi-clock text-success me-2"></i> Sat–Thu: 8 AM – 10 PM</li>
+          <li><i class="bi bi-telephone text-success me-2"></i> 22269355 / 22269388</li>
+          <li><i class="bi bi-whatsapp text-success me-2"></i> 99059978</li>
+          <li><i class="bi bi-geo-alt-fill text-success me-2"></i> Ground Floor</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<!-- Interior Photo -->
+<section class="py-5 text-center">
+  <h4 class="text-green mb-3">Inside the Pharmacy</h4>
+  <img src="../assets/images/services/alturki-pharmacy_interior.png" alt="AlTurki Pharmacy Interior"
+       class="img-fluid rounded shadow" style="max-height: 500px;">
+</section>
+
+<!-- FOOTER -->
 <div id="footer"></div>
+
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-    fetch("../assets/components/navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar").innerHTML = data;
-        return fetch("../assets/components/footer.html");
-      })
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
-  </script>
+  // Load navbar and footer dynamically
+  fetch('../assets/components/navbar.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('navbar').innerHTML = html);
+
+  fetch('../assets/components/footer.html')
+    .then(res => res.text())
+    .then(html => document.getElementById('footer').innerHTML = html);
+</script>
 </body>
 </html>
