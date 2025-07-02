@@ -60,14 +60,80 @@
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Load navbar and footer dynamically
-  fetch('../assets/components/navbar.html')
+  fetch("../assets/components/navbar.html")
     .then(res => res.text())
-    .then(html => document.getElementById('navbar').innerHTML = html);
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
 
-  fetch('../assets/components/footer.html')
+      const current = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-link").forEach(link => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+        }
+      });
+
+      const navbar = document.querySelector('.navbar-glass');
+      let lastScrollTop = 0;
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scrollTop > 50) {
+          navbar?.classList.add('scrolled');
+        } else {
+          navbar?.classList.remove('scrolled');
+        }
+
+        if (scrollTop > lastScrollTop) {
+          navbar.style.top = "-100px";
+        } else {
+          navbar.style.top = "0";
+        }
+
+        lastScrollTop = scrollTop;
+      });
+
+      return fetch("../assets/components/footer.html");
+    })
     .then(res => res.text())
-    .then(html => document.getElementById('footer').innerHTML = html);
+    .then(data => {
+      document.getElementById("footer").innerHTML = data;
+
+      const aosCSS = document.createElement("link");
+      aosCSS.rel = "stylesheet";
+      aosCSS.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
+      document.head.appendChild(aosCSS);
+
+      const aosJS = document.createElement("script");
+      aosJS.src = "https://unpkg.com/aos@2.3.1/dist/aos.js";
+      aosJS.onload = () => {
+        const aosMap = {
+          "aos-fade": "fade",
+          "aos-fade-up": "fade-up",
+          "aos-fade-down": "fade-down",
+          "aos-fade-left": "fade-left",
+          "aos-fade-right": "fade-right",
+          "aos-zoom-in": "zoom-in",
+          "aos-zoom-out": "zoom-out",
+          "aos-slide-up": "slide-up",
+          "aos-slide-left": "slide-left"
+        };
+
+        Object.keys(aosMap).forEach(cls => {
+          document.querySelectorAll(`.${cls}`).forEach(el => {
+            el.setAttribute("data-aos", aosMap[cls]);
+          });
+        });
+
+        AOS.init({
+          duration: 800,
+          easing: 'ease-out-cubic',
+          once: false
+        });
+      };
+      document.body.appendChild(aosJS);
+    });
 </script>
+
 </body>
 </html>

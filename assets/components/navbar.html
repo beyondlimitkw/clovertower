@@ -1,62 +1,71 @@
 <!-- Navbar Component -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-glass py-3">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-glass py-3 transition-navbar" id="mainNavbar">
   <div class="container-fluid px-4">
     <a class="navbar-brand d-flex align-items-center" href="/index.html">
       <img src="/assets/images/logos/clover-tower.png" alt="Clover Tower Logo" style="height: 40px;">
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
 
-<li class="nav-item">
-  <a class="nav-link" href="/index.html">Home</a>
-</li>
-<li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSpecialties" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Specialties
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="navbarDropdownSpecialties">
-    <li><a class="dropdown-item" href="/specialty.html#dentistry">Dentistry</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#ent">Ent</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#gastroenterology">Gastroenterology</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#internal&geriatric-medicine">Internal&Geriatric Medicine</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#mental-health">Mental Health</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#ophthalmology">Ophthalmology</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#otology">Otology</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#pediatrics">Pediatrics</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#physical-therapy">Physical Therapy</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#plastic-surgery">Plastic Surgery</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#psychiatry">Psychiatry</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#radiology">Radiology</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#surgery">Surgery</a></li>
-    <li><a class="dropdown-item" href="/specialty.html#urology">Urology</a></li>
-  </ul>
-</li>
+        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSpecialties" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Specialties
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownSpecialties">
+            <li><a class="dropdown-item" href="/specialty.html#dentistry">Dentistry</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#ent">Ent</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#gastroenterology">Gastroenterology</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#internal&geriatric-medicine">Internal & Geriatric Medicine</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#mental-health">Mental Health</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#ophthalmology">Ophthalmology</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#otology">Otology</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#pediatrics">Pediatrics</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#physical-therapy">Physical Therapy</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#plastic-surgery">Plastic Surgery</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#psychiatry">Psychiatry</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#radiology">Radiology</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#surgery">Surgery</a></li>
+            <li><a class="dropdown-item" href="/specialty.html#urology">Urology</a></li>
+          </ul>
+        </li>
 
-<li class="nav-item">
-  <a class="nav-link" href="/doctors.html">Doctors</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="/clinics.html">Clinics</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="/clinic_types.html">Clinic Types</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="/services.html">Services</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="/about.html">About</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="/contact.html">Contact</a>
-</li>
-
-
+        <li class="nav-item"><a class="nav-link" href="/doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="/clinics.html">Clinics</a></li>
+        <li class="nav-item"><a class="nav-link" href="/clinic_types.html">Clinic Types</a></li>
+        <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
+
+<script>
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('mainNavbar');
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      // Downscroll
+      navbar.style.top = "-100px";
+    } else {
+      // Upscroll
+      navbar.style.top = "0";
+    }
+    lastScrollTop = scrollTop;
+  });
+</script>
+
+<style>
+  #mainNavbar {
+    transition: top 0.4s ease;
+    z-index: 1000;
+  }
+</style>
