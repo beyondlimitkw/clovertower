@@ -20,6 +20,53 @@ padding-top: 90px; /* or whatever your navbar height is */
   }
 }
 
+/* Dropdown container */
+.navbar .dropdown-menu {
+  background-color: white;
+  border-radius: 0.75rem;
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  min-width: 500px;
+  max-width: 800px;
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+
+/* Dropdown item */
+.navbar .dropdown-menu .dropdown-item {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.92rem;
+  color: #333;
+  border-radius: 0.4rem;
+  transition: background 0.2s, color 0.2s;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.25;
+  text-align: left;
+}
+
+
+.navbar .dropdown-menu .dropdown-item:hover {
+  background-color: #e6f4ec; /* Soft green tint */
+  color: var(--green, #38a169);
+  font-weight: 500;
+}
+
+/* Dropdown icon transition */
+.navbar .dropdown-toggle::after {
+  transition: transform 0.2s ease;
+}
+
+.navbar .show .dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+/* Dropdown fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 /* Upgraded card hover effect */
 .card.card-glass:hover {
