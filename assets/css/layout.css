@@ -1,12 +1,9 @@
 /* ===== LAYOUT ===== */
 
 /* --- Typography & Colors --- */
-/* ===== LAYOUT ===== */
-
-/* --- Typography & Colors --- */
 /* Navbar */
 body {
-padding-top: 90px; /* or whatever your navbar height is */
+padding-top: 110px; /* or whatever your navbar height is */
 }
 /* === Animations === */
 @keyframes fadeInTop {
