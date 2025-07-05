@@ -135,13 +135,18 @@
           navbar?.classList.remove('scrolled');
         }
 
-        if (scrollTop > lastScrollTop) {
-          navbar.style.top = "-100px";
-        } else {
-          navbar.style.top = "0";
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+              
+        if (scrollTop > lastScrollTop && scrollTop < maxScroll - 10) {
+          navbar.style.top = "-100px"; // hide while scrolling down
+        } else if (scrollTop < lastScrollTop - 5) {
+          navbar.style.top = "0"; // only show on meaningful upward scroll
         }
+        
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 
-        lastScrollTop = scrollTop;
+
+        
       });
 
       return fetch("../assets/components/footer.html");
