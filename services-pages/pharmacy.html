@@ -72,6 +72,23 @@
         }
       });
 
+      // Dropdown toggle logic
+      const dropdownToggle = document.querySelector('.clover-navbar .dropdown-toggle');
+      const dropdownParent = dropdownToggle?.closest('.dropdown');
+          
+      dropdownToggle?.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdownParent?.classList.toggle('open');
+      });
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', (e) => {
+        if (!dropdownParent?.contains(e.target)) {
+          dropdownParent?.classList.remove('open');
+        }
+      });
+
+
       const navbar = document.querySelector('.navbar-glass');
       let lastScrollTop = 0;
 
@@ -84,18 +101,15 @@
           navbar?.classList.remove('scrolled');
         }
 
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-              
+        const maxScroll = document.body.scrollHeight - window.innerHeight;
+
         if (scrollTop > lastScrollTop && scrollTop < maxScroll - 10) {
           navbar.style.top = "-100px"; // hide while scrolling down
         } else if (scrollTop < lastScrollTop - 5) {
           navbar.style.top = "0"; // only show on meaningful upward scroll
         }
-        
+
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-
-
-        
       });
 
       return fetch("../assets/components/footer.html");
@@ -131,7 +145,7 @@
         });
 
         AOS.init({
-          duration: 800,
+          duration: 700,
           easing: 'ease-out-cubic',
           once: false
         });
@@ -139,6 +153,7 @@
       document.body.appendChild(aosJS);
     });
 </script>
+
 
 </body>
 </html>

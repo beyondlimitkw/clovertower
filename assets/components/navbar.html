@@ -1,72 +1,41 @@
-<!-- Navbar Component -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top navbar-glass py-3 transition-navbar" id="mainNavbar">
-  <div class="container-fluid px-4">
-    <a class="navbar-brand d-flex align-items-center" href="/index.html">
-      <img src="/assets/images/logos/clover-tower.svg" alt="Clover Tower Logo" style="height: 60px;">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="clover-navbar glass-nav px-4 py-3 fixed-top d-flex justify-content-between align-items-center" id="mainNavbar">
+  <!-- Left -->
+  <ul class="nav-list d-flex gap-3 mb-0">
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/doctors.html">Doctors</a></li>
+    <li><a href="/clinics.html">Clinics</a></li>
+    <li><a href="/clinic_types.html">Clinic Types</a></li>
+  </ul>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+  <!-- Center Logo -->
+  <a href="/index.html" class="nav-logo d-flex align-items-center">
+    <img src="/assets/images/logos/clover-tower.svg" alt="Clover Tower Logo" style="height: 60px;">
+  </a>
 
-        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownSpecialties" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Specialties
-          </a>
-          <ul class="dropdown-menu px-3 py-2 columns-3" aria-labelledby="navbarDropdownSpecialties" style="left: 0; right: auto;">
-            <div class="row row-cols-3 g-2">
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#dentistry">Dentistry</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#pediatrics">Pediatrics</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#urology">Urology</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#ent">ENT</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#otology">Otology</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#plastic-surgery">Plastic Surgery</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#gastroenterology">Gastroenterology</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#mental-health">Mental Health</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#surgery">Surgery</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#allergy">Allergy</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#internal-geriatric-medicine">Internal & Geriatrics</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#eyes-vision">Eyes & Vision</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#physical-therapy">Physical Therapy</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#radiology">Radiology</a></div>
-              <div class="col"><a class="dropdown-item text-wrap" href="/specialty.html#laboratory">Laboratory</a></div>
-            </div>
-          </ul>
-        </li>
-
-        <li class="nav-item"><a class="nav-link" href="/doctors.html">Doctors</a></li>
-        <li class="nav-item"><a class="nav-link" href="/clinics.html">Clinics</a></li>
-        <li class="nav-item"><a class="nav-link" href="/clinic_types.html">Clinic Types</a></li>
-        <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </div>
+  <!-- Right -->
+  <ul class="nav-list d-flex align-items-center gap-3 mb-0">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle">Specialties</a>
+      <div class="dropdown-menu-3col">
+        <a href="/specialty.html#dentistry">Dentistry</a>
+        <a href="/specialty.html#pediatrics">Pediatrics</a>
+        <a href="/specialty.html#urology">Urology</a>
+        <a href="/specialty.html#ent">ENT</a>
+        <a href="/specialty.html#otology">Otology</a>
+        <a href="/specialty.html#plastic-surgery">Plastic Surgery</a>
+        <a href="/specialty.html#gastroenterology">Gastroenterology</a>
+        <a href="/specialty.html#mental-health">Mental Health</a>
+        <a href="/specialty.html#surgery">Surgery</a>
+        <a href="/specialty.html#allergy">Allergy</a>
+        <a href="/specialty.html#internal-geriatric-medicine">Internal & Geriatrics</a>
+        <a href="/specialty.html#eyes-vision">Eyes & Vision</a>
+        <a href="/specialty.html#physical-therapy">Physical Therapy</a>
+        <a href="/specialty.html#radiology">Radiology</a>
+        <a href="/specialty.html#laboratory">Laboratory</a>
+      </div>
+    </li>
+    <li><a href="/services.html">Services</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
 </nav>
-
-<script>
-  let lastScrollTop = 0;
-  const navbar = document.getElementById('mainNavbar');
-
-  window.addEventListener("scroll", function () {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      navbar.style.top = "-100px"; // hide on scroll down after threshold
-    } else if (scrollTop < lastScrollTop) {
-      navbar.style.top = "0"; // show on scroll up
-    }
-    
-  });
-</script>
-
-<style>
-  #mainNavbar {
-    transition: top 0.4s ease;
-    z-index: 1000;
-  }
-</style>

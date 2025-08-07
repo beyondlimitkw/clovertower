@@ -1,138 +1,7 @@
+/* ===== CLOVER TOWER DESIGN SYSTEM ===== */
 
-/* ===== DESIGN SYSTEM ===== */
-
-
-/* Typography */
-body {
-
-  font-family: 'Poppins', sans-serif;
-  font-size: 1rem;
-  color: var(--dark-text);
-  line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5 {
-
-  font-weight: 600;
-  color: var(--clover-green);
-}
-
-p {
-
-  color: var(--light-text);
-}
-
-/* Section spacing */
-.fullscreen-section {
-
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* centers content vertically */
-}
-
-/* Whatsapp Floating */
-.whatsapp-float {
-
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2D9F40;
-  color: white;
-  border-radius: 50%;
-  padding: 15px;
-  font-size: 24px;
-  z-index: 999;
-}
-
-/* Pages Banner */ 
-.banner-space {
-
-  padding-top: 100px;
-  padding-bottom: 40px;
-}
-
-/* --- Buttons --- */
-/* Whatsapp Floating */
-.whatsapp-float {
-
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2D9F40;
-  color: white;
-  border-radius: 50%;
-  padding: 15px;
-  font-size: 24px;
-  z-index: 999;
-}
-
-/* --- Buttons --- */
-/* Buttons */
-.btn-brand {
-
-  background-color: var(--clover-green);
-  color: var(--white);
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.75rem 1.5rem;
-}
-
-.btn-brand:hover {
-
-  background-color: #248534;
-  color: white;
-}
-
-.btn-outline-brand {
-
-  border: 2px solid var(--clover-green);
-  color: var(--clover-green);
-  border-radius: 0.5rem;
-}
-
-.btn-outline-brand:hover {
-
-  background-color: var(--clover-green);
-  color: white;
-}
-
-/* --- Cards & Components --- */
-.bg-glass {
-
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
-}
-
-/* Glass Hover Base */
-.glass-hover {
-
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 1rem;
-  transition: all 0.3s ease;
-  display: block;
-}
-
-/* Hover effect */
-.glass-hover:hover {
-
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.03);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-/* --- Uncategorized --- */
-/* === Clover Tower Base Design System === */
-
-/* Color Palette */
+/* --- Variables --- */
 :root {
-
   --clover-green: #2D9F40;
   --mint-green: #f2fdf7;
   --dark-text: #2A2A2A;
@@ -145,31 +14,106 @@ p {
   --hover-shadow: rgba(45, 159, 64, 0.25);
 }
 
-/* Background Utilities */
-.bg-white {
-
-  background-color: var(--white);
+/* --- Typography --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: var(--dark-text);
+  line-height: 1.6;
+  padding-top: 0px;
 }
 
-.bg-light-gray {
-
-  background-color: #f9f9f9;
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  color: var(--clover-green);
 }
 
-.bg-light-green {
-
-  background-color: #f2fdf7;
+p {
+  color: var(--light-text);
 }
 
-#doctorList,
-#clinicList {
-
-  transition: opacity 0.4s ease;
+/* --- Section Spacing --- */
+.fullscreen-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* Icon Circle */
+/* --- Background Utilities --- */
+.bg-white { background-color: var(--white); }
+.bg-light-gray { background-color: #f9f9f9; }
+.bg-light-green { background-color: var(--mint-green); }
+
+/* --- Cards & Components --- */
+.card.card-glass {
+  background: rgba(255, 255, 255, 0.15) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+  border: none !important;
+  border-radius: 1.5rem !important;
+  transition: all 0.35s ease-in-out !important;
+}
+.card.card-glass:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.glass-hover {
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-hover:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* --- Buttons --- */
+.btn-brand {
+  background-color: var(--clover-green);
+  color: var(--white);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+}
+.btn-brand:hover {
+  background-color: #248534;
+  color: white;
+}
+.btn-outline-brand {
+  border: 2px solid var(--clover-green);
+  color: var(--clover-green);
+  border-radius: 0.5rem;
+}
+.btn-outline-brand:hover {
+  background-color: var(--clover-green);
+  color: white;
+}
+
+/* --- Whatsapp Floating --- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2D9F40;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 24px;
+  z-index: 999;
+}
+
+/* --- Banners & Icons --- */
+.banner-space {
+  padding-top: 0px;
+  padding-bottom: 40px;
+}
 .icon-circle {
-
   width: 60px;
   height: 60px;
   background-color: rgba(45, 159, 64, 0.1);
@@ -182,37 +126,135 @@ p {
   margin: 0 auto;
 }
 
-/* === Refined Glass Card Style === */
-.card-glass {
-
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  border: none;
-  border-radius: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* --- Navbar --- */
+/* Clean navbar layout */
+.clover-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 32px;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.card-glass:hover {
-
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+.clover-navbar .nav-list {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
 }
 
-.card.card-glass {
-
-  background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
-  border: none !important;
-  border-radius: 1.5rem !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+.clover-navbar a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s ease;
 }
 
-.card.card-glass:hover {
+.clover-navbar a:hover {
+  color: #30a46c;
+}
 
-  transform: translateY(-5px) !important;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12) !important;
+/* Dropdown layout and logic */
+.clover-navbar .dropdown {
+  position: relative;
+}
+
+.clover-navbar .dropdown-menu-3col {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 520px;
+  background: white;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.clover-navbar .dropdown.open .dropdown-menu-3col {
+  display: grid;
+}
+
+.dropdown-menu-3col a {
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 6px;
+  color: #333;
+  font-size: 0.92rem;
+  transition: background 0.2s ease;
+}
+
+.dropdown-menu-3col a:hover {
+  background: #f0f0f0;
+}
+
+
+/* --- Specialty Title Underline --- */
+.specialty-header {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.specialty-header::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #50b394;
+  border-radius: 2px;
+}
+
+/* --- Section Dividers --- */
+.section-divider {
+  width: 80px;
+  height: 4px;
+  margin: 3rem auto;
+  border-radius: 3px;
+  background: #1fa463;
+}
+.section-divider.white { background-color: white; }
+.section-divider.green { background-color: #1fa463; }
+.section-divider.fade {
+  background: linear-gradient(to right, transparent, #1fa463, transparent);
+}
+
+/* --- Utility --- */
+a.text-decoration-none.text-reset {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+#doctorList, #clinicList {
+  transition: opacity 0.4s ease;
+}
+
+/* --- Animations --- */
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
