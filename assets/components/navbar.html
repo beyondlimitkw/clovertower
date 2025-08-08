@@ -1,41 +1,44 @@
-<nav class="clover-navbar glass-nav px-4 py-3 fixed-top d-flex justify-content-between align-items-center" id="mainNavbar">
-  <!-- Left -->
-  <ul class="nav-list d-flex gap-3 mb-0">
-    <li><a href="/index.html">Home</a></li>
-    <li><a href="/doctors.html">Doctors</a></li>
-    <li><a href="/clinics.html">Clinics</a></li>
-    <li><a href="/clinic_types.html">Clinic Types</a></li>
-  </ul>
+<nav class="clover-navbar fixed-top" id="mainNavbar">
+  <div class="nav-container">
+    <!-- Left group -->
+    <ul class="nav-section nav-left">
+      <li><a class="nav-link" href="/index.html">Home</a></li>
+      <li><a class="nav-link" href="/doctors.html">Doctors</a></li>
+      <li><a class="nav-link" href="/clinics.html">Clinics</a></li>
+      <li><a class="nav-link" href="/clinic_types.html">Clinic Types</a></li>
+    </ul>
 
-  <!-- Center Logo -->
-  <a href="/index.html" class="nav-logo d-flex align-items-center">
-    <img src="/assets/images/logos/clover-tower.svg" alt="Clover Tower Logo" style="height: 60px;">
-  </a>
+    <!-- Center logo -->
+    <a href="/index.html" class="nav-logo" aria-label="Clover Tower">
+      <img src="/assets/images/logos/clover-tower.svg" alt="Clover Tower Logo" style="height:60px;">
+    </a>
 
-  <!-- Right -->
-  <ul class="nav-list d-flex align-items-center gap-3 mb-0">
-    <li class="dropdown">
-      <a href="#" class="dropdown-toggle">Specialties</a>
-      <div class="dropdown-menu-3col">
-        <a href="/specialty.html#dentistry">Dentistry</a>
-        <a href="/specialty.html#pediatrics">Pediatrics</a>
-        <a href="/specialty.html#urology">Urology</a>
-        <a href="/specialty.html#ent">ENT</a>
-        <a href="/specialty.html#otology">Otology</a>
-        <a href="/specialty.html#plastic-surgery">Plastic Surgery</a>
-        <a href="/specialty.html#gastroenterology">Gastroenterology</a>
-        <a href="/specialty.html#mental-health">Mental Health</a>
-        <a href="/specialty.html#surgery">Surgery</a>
-        <a href="/specialty.html#allergy">Allergy</a>
-        <a href="/specialty.html#internal-geriatric-medicine">Internal & Geriatrics</a>
-        <a href="/specialty.html#eyes-vision">Eyes & Vision</a>
-        <a href="/specialty.html#physical-therapy">Physical Therapy</a>
-        <a href="/specialty.html#radiology">Radiology</a>
-        <a href="/specialty.html#laboratory">Laboratory</a>
-      </div>
-    </li>
-    <li><a href="/services.html">Services</a></li>
-    <li><a href="/about.html">About</a></li>
-    <li><a href="/contact.html">Contact</a></li>
-  </ul>
-</nav>
+    <!-- FAR RIGHT: hamburger + links wrapper -->
+    <button class="nav-toggle" id="navbarToggle" aria-expanded="false" aria-controls="navbarMenu">☰</button>
+    <ul class="nav-section right" id="navbarMenu" hidden>
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" id="specialtiesToggle" aria-expanded="false">Specialties ▾</a>
+        <div class="dropdown-grid" id="specialtiesDropdown">
+          <a class="dropdown-item" href="/specialty.html#dentistry">Dentistry</a>
+          <a class="dropdown-item" href="/specialty.html#pediatrics">Pediatrics</a>
+          <a class="dropdown-item" href="/specialty.html#urology">Urology</a>
+          <a class="dropdown-item" href="/specialty.html#ent">ENT</a>
+          <a class="dropdown-item" href="/specialty.html#otology">Otology</a>
+          <a class="dropdown-item" href="/specialty.html#plastic-surgery">Plastic Surgery</a>
+          <a class="dropdown-item" href="/specialty.html#gastroenterology">Gastroenterology</a>
+          <a class="dropdown-item" href="/specialty.html#mental-health">Mental Health</a>
+          <a class="dropdown-item" href="/specialty.html#surgery">Surgery</a>
+          <a class="dropdown-item" href="/specialty.html#allergy">Allergy</a>
+          <a class="dropdown-item" href="/specialty.html#internal-geriatric-medicine">Internal & Geriatrics</a>
+          <a class="dropdown-item" href="/specialty.html#eyes-vision">Eyes & Vision</a>
+          <a class="dropdown-item" href="/specialty.html#physical-therapy">Physical Therapy</a>
+          <a class="dropdown-item" href="/specialty.html#radiology">Radiology</a>
+          <a class="dropdown-item" href="/specialty.html#laboratory">Laboratory</a>
+        </div>
+      </li>
+      <li><a class="nav-link" href="/services.html">Services</a></li>
+      <li><a class="nav-link" href="/about.html">About</a></li>
+      <li><a class="nav-link" href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>

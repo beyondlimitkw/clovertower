@@ -198,61 +198,107 @@
   fetch("../assets/components/navbar.html")
     .then(res => res.text())
     .then(data => {
+      // Inject navbar component
       document.getElementById("navbar").innerHTML = data;
 
-      const current = window.location.pathname.split("/").pop();
+      /* ========== Active link ========== */
+      const current = window.location.pathname.split("/").pop() || "index.html";
       document.querySelectorAll(".nav-link").forEach(link => {
-        if (link.getAttribute("href") === current) {
+        if (link.getAttribute("href")?.endsWith(current)) {
           link.classList.add("active");
         }
       });
 
-      // Dropdown toggle logic
-      const dropdownToggle = document.querySelector('.clover-navbar .dropdown-toggle');
-      const dropdownParent = dropdownToggle?.closest('.dropdown');
-          
-      dropdownToggle?.addEventListener('click', (e) => {
-        e.preventDefault();
-        dropdownParent?.classList.toggle('open');
-      });
-      
-      // Close dropdown when clicking outside
-      document.addEventListener('click', (e) => {
-        if (!dropdownParent?.contains(e.target)) {
-          dropdownParent?.classList.remove('open');
-        }
-      });
+      /* ========== Mobile hamburger (far right) ========== */
+      const menu   = document.getElementById('navbarMenu');     // <div id="navbarMenu">
+      const toggle = document.getElementById('navbarToggle');   // <button id="navbarToggle">
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const isHidden = menu.hasAttribute('hidden');
+          if (isHidden) menu.removeAttribute('hidden'); else menu.setAttribute('hidden', '');
+          toggle.setAttribute('aria-expanded', String(isHidden));
+        });
 
+        // Close menu after clicking a link (nice for mobile)
+        menu.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            menu.setAttribute('hidden', '');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
 
-      const navbar = document.querySelector('.navbar-glass');
+        // Close on resize up to desktop to prevent stuck-open states
+        let lastIsMobile = window.innerWidth <= 991;
+        window.addEventListener('resize', () => {
+          const isMobile = window.innerWidth <= 991;
+          if (!isMobile && lastIsMobile) {
+            menu.setAttribute('hidden', '');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+          lastIsMobile = isMobile;
+        });
+      }
+
+      /* ========== Specialties dropdown (click to toggle) ========== */
+      const ddToggle = document.getElementById('specialtiesToggle');      // <a id="specialtiesToggle">
+      const ddWrap   = ddToggle?.closest('.dropdown');                    // wrapping .dropdown
+      const ddMenu   = document.getElementById('specialtiesDropdown');    // <div id="specialtiesDropdown">
+      if (ddToggle && ddWrap && ddMenu) {
+        ddToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const nowOpen = ddWrap.classList.toggle('open');
+          ddToggle.setAttribute('aria-expanded', String(nowOpen));
+        });
+
+        // Close when clicking outside (desktop & mobile)
+        document.addEventListener('click', (e) => {
+          if (!ddWrap.contains(e.target)) {
+            ddWrap.classList.remove('open');
+            ddToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Close dropdown when navigating
+        ddMenu.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            ddWrap.classList.remove('open');
+            ddToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      /* ========== Scroll behavior (hide on down, show on up) ========== */
+      const navbarEl = document.querySelector('.clover-navbar, .navbar-glass');
       let lastScrollTop = 0;
+      if (navbarEl) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-      window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+          if (scrollTop > 50) {
+            navbarEl.classList.add('scrolled');
+          } else {
+            navbarEl.classList.remove('scrolled');
+          }
 
-        if (scrollTop > 50) {
-          navbar?.classList.add('scrolled');
-        } else {
-          navbar?.classList.remove('scrolled');
-        }
+          const maxScroll = document.body.scrollHeight - window.innerHeight;
+          if (scrollTop > lastScrollTop && scrollTop < maxScroll - 10) {
+            navbarEl.style.top = "-100px";   // hide while scrolling down
+          } else if (scrollTop < lastScrollTop - 5) {
+            navbarEl.style.top = "0";        // show on meaningful upward scroll
+          }
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+      }
 
-        const maxScroll = document.body.scrollHeight - window.innerHeight;
-
-        if (scrollTop > lastScrollTop && scrollTop < maxScroll - 10) {
-          navbar.style.top = "-100px"; // hide while scrolling down
-        } else if (scrollTop < lastScrollTop - 5) {
-          navbar.style.top = "0"; // only show on meaningful upward scroll
-        }
-
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-      });
-
+      // Continue: load footer next
       return fetch("../assets/components/footer.html");
     })
     .then(res => res.text())
     .then(data => {
+      // Inject footer component
       document.getElementById("footer").innerHTML = data;
 
+      /* ========== AOS (on-demand) ========== */
       const aosCSS = document.createElement("link");
       aosCSS.rel = "stylesheet";
       aosCSS.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
@@ -272,22 +318,18 @@
           "aos-slide-up": "slide-up",
           "aos-slide-left": "slide-left"
         };
-
         Object.keys(aosMap).forEach(cls => {
           document.querySelectorAll(`.${cls}`).forEach(el => {
             el.setAttribute("data-aos", aosMap[cls]);
           });
         });
-
-        AOS.init({
-          duration: 700,
-          easing: 'ease-out-cubic',
-          once: false
-        });
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: false });
       };
       document.body.appendChild(aosJS);
-    });
+    })
+    .catch(err => console.error("Layout load error:", err));
 </script>
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
