@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dr. Waleed Al Herz  – Clover Tower</title>
+<link href="../assets/images/logos/clovertower_favicon.png" rel="icon" type="image/png"/>
+<link href="../assets/images/logos/apple-icon.png" rel="apple-touch-icon"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet"/>
+<link href="../assets/css/clovertower-design-system.css" rel="stylesheet"/>
+<link href="../assets/css/layout.css" rel="stylesheet"/>
+</head>
+<body>
+<div id="navbar"></div>
+<section class="fullscreen-section bg-white">
+  <div class="container">
+    <div class="row g-4 align-items-center justify-content-center text-center text-md-start">
+      <div class="col-md-4 text-center">
+        <img src="../assets/images/doctors-&-clinics/dr.waleed-alherz.png" alt="Dr. Waleed Al Herz " class="img-fluid rounded-circle shadow" style="max-width: 250px;">
+      </div>
+      <div class="col-md-8">
+        <h2 class="fw-bold text-green">Dr. Waleed Al Herz </h2>
+        <p class="text-muted mb-1"><strong>Specialty:</strong> Child Allergy </p>
+        <ul><li>Allergy</li><li>Asthma</li><li>Immunology for children and adults</li></ul>
+        
+        <ul class="list-unstyled mt-3">
+          <li><i class="bi bi-clock text-success me-2"></i> Hours: Sun–Thu: 2 PM – 6 PM | Sat: 10 AM – 2 PM</li><li><i class="bi bi-telephone text-success me-2"></i> 25332330 / 22269449 / 90094424</li><li><i class="bi bi-globe text-success me-2"></i><a href="https://www.kuwaitallergyclinic.com" target="_blank">https://www.kuwaitallergyclinic.com</a></li><li><i class="bi bi-instagram text-success me-2"></i><a href="https://instagram.com/alkhabaz" target="_blank">@alkhabaz</a></li><li><i class="bi bi-geo-alt-fill text-success me-2"></i> Location: 12th Floor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  fetch("../assets/components/navbar.html")
+    .then(res => res.text())
+    .then(data => {
+      // Inject navbar component
+      document.getElementById("navbar").innerHTML = data;
+
+      /* ========== Active link ========== */
+      const current = window.location.pathname.split("/").pop() || "index.html";
+      document.querySelectorAll(".nav-link").forEach(link => {
+        if (link.getAttribute("href")?.endsWith(current)) {
+          link.classList.add("active");
+        }
+      });
+
+      /* ========== Mobile hamburger (far right) ========== */
+      const menu   = document.getElementById('navbarMenu');     // <div id="navbarMenu">
+      const toggle = document.getElementById('navbarToggle');   // <button id="navbarToggle">
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const isHidden = menu.hasAttribute('hidden');
+          if (isHidden) menu.removeAttribute('hidden'); else menu.setAttribute('hidden', '');
+          toggle.setAttribute('aria-expanded', String(isHidden));
+        });
+
+        // Close menu after clicking a link (nice for mobile)
+        menu.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            menu.setAttribute('hidden', '');
+            toggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+
+        // Close on resize up to desktop to prevent stuck-open states
+        let lastIsMobile = window.innerWidth <= 991;
+        window.addEventListener('resize', () => {
+          const isMobile = window.innerWidth <= 991;
+          if (!isMobile && lastIsMobile) {
+            menu.setAttribute('hidden', '');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+          lastIsMobile = isMobile;
+        });
+      }
+
+      /* ========== Specialties dropdown (click to toggle) ========== */
+      const ddToggle = document.getElementById('specialtiesToggle');      // <a id="specialtiesToggle">
+      const ddWrap   = ddToggle?.closest('.dropdown');                    // wrapping .dropdown
+      const ddMenu   = document.getElementById('specialtiesDropdown');    // <div id="specialtiesDropdown">
+      if (ddToggle && ddWrap && ddMenu) {
+        ddToggle.addEventListener('click', (e) => {
+          e.preventDefault();
+          const nowOpen = ddWrap.classList.toggle('open');
+          ddToggle.setAttribute('aria-expanded', String(nowOpen));
+        });
+
+        // Close when clicking outside (desktop & mobile)
+        document.addEventListener('click', (e) => {
+          if (!ddWrap.contains(e.target)) {
+            ddWrap.classList.remove('open');
+            ddToggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Close dropdown when navigating
+        ddMenu.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', () => {
+            ddWrap.classList.remove('open');
+            ddToggle.setAttribute('aria-expanded', 'false');
+          });
+        });
+      }
+
+      /* ========== Scroll behavior (hide on down, show on up) ========== */
+      const navbarEl = document.querySelector('.clover-navbar, .navbar-glass');
+      let lastScrollTop = 0;
+      if (navbarEl) {
+        window.addEventListener('scroll', () => {
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+          if (scrollTop > 50) {
+            navbarEl.classList.add('scrolled');
+          } else {
+            navbarEl.classList.remove('scrolled');
+          }
+
+          const maxScroll = document.body.scrollHeight - window.innerHeight;
+          if (scrollTop > lastScrollTop && scrollTop < maxScroll - 10) {
+            navbarEl.style.top = "-100px";   // hide while scrolling down
+          } else if (scrollTop < lastScrollTop - 5) {
+            navbarEl.style.top = "0";        // show on meaningful upward scroll
+          }
+          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+      }
+
+      // Continue: load footer next
+      return fetch("../assets/components/footer.html");
+    })
+    .then(res => res.text())
+    .then(data => {
+      // Inject footer component
+      document.getElementById("footer").innerHTML = data;
+
+      /* ========== AOS (on-demand) ========== */
+      const aosCSS = document.createElement("link");
+      aosCSS.rel = "stylesheet";
+      aosCSS.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
+      document.head.appendChild(aosCSS);
+
+      const aosJS = document.createElement("script");
+      aosJS.src = "https://unpkg.com/aos@2.3.1/dist/aos.js";
+      aosJS.onload = () => {
+        const aosMap = {
+          "aos-fade": "fade",
+          "aos-fade-up": "fade-up",
+          "aos-fade-down": "fade-down",
+          "aos-fade-left": "fade-left",
+          "aos-fade-right": "fade-right",
+          "aos-zoom-in": "zoom-in",
+          "aos-zoom-out": "zoom-out",
+          "aos-slide-up": "slide-up",
+          "aos-slide-left": "slide-left"
+        };
+        Object.keys(aosMap).forEach(cls => {
+          document.querySelectorAll(`.${cls}`).forEach(el => {
+            el.setAttribute("data-aos", aosMap[cls]);
+          });
+        });
+        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: false });
+      };
+      document.body.appendChild(aosJS);
+    })
+    .catch(err => console.error("Layout load error:", err));
+</script>
+
+
+
+</body>
+</html>
