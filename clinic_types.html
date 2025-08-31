@@ -209,17 +209,18 @@
         }
       });
 
-      /* ========== Mobile hamburger (far right) ========== */
-      const menu   = document.getElementById('navbarMenu');     // <div id="navbarMenu">
-      const toggle = document.getElementById('navbarToggle');   // <button id="navbarToggle">
+      /* ========== Mobile hamburger ========== */
+      const menu   = document.getElementById('navbarMenu');
+      const toggle = document.getElementById('navbarToggle');
       if (toggle && menu) {
         toggle.addEventListener('click', () => {
           const isHidden = menu.hasAttribute('hidden');
-          if (isHidden) menu.removeAttribute('hidden'); else menu.setAttribute('hidden', '');
+          if (isHidden) menu.removeAttribute('hidden');
+          else menu.setAttribute('hidden', '');
           toggle.setAttribute('aria-expanded', String(isHidden));
         });
 
-        // Close menu after clicking a link (nice for mobile)
+        // Close menu after clicking a link
         menu.querySelectorAll('a').forEach(a => {
           a.addEventListener('click', () => {
             menu.setAttribute('hidden', '');
@@ -227,7 +228,7 @@
           });
         });
 
-        // Close on resize up to desktop to prevent stuck-open states
+        // Close if resizing to desktop
         let lastIsMobile = window.innerWidth <= 991;
         window.addEventListener('resize', () => {
           const isMobile = window.innerWidth <= 991;
@@ -239,35 +240,36 @@
         });
       }
 
-      /* ========== Specialties dropdown (click to toggle) ========== */
-      const ddToggle = document.getElementById('specialtiesToggle');      // <a id="specialtiesToggle">
-      const ddWrap   = ddToggle?.closest('.dropdown');                    // wrapping .dropdown
-      const ddMenu   = document.getElementById('specialtiesDropdown');    // <div id="specialtiesDropdown">
-      if (ddToggle && ddWrap && ddMenu) {
-        ddToggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          const nowOpen = ddWrap.classList.toggle('open');
-          ddToggle.setAttribute('aria-expanded', String(nowOpen));
-        });
+      /* ========== Specialties dropdown (delayed to ensure element exists) ========== */
+      setTimeout(() => {
+        const ddToggle = document.getElementById('specialtiesToggle');
+        const ddWrap   = ddToggle?.closest('.dropdown');
+        const ddMenu   = document.getElementById('specialtiesDropdown');
 
-        // Close when clicking outside (desktop & mobile)
-        document.addEventListener('click', (e) => {
-          if (!ddWrap.contains(e.target)) {
-            ddWrap.classList.remove('open');
-            ddToggle.setAttribute('aria-expanded', 'false');
-          }
-        });
-
-        // Close dropdown when navigating
-        ddMenu.querySelectorAll('a').forEach(a => {
-          a.addEventListener('click', () => {
-            ddWrap.classList.remove('open');
-            ddToggle.setAttribute('aria-expanded', 'false');
+        if (ddToggle && ddWrap && ddMenu) {
+          ddToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const nowOpen = ddWrap.classList.toggle('open');
+            ddToggle.setAttribute('aria-expanded', String(nowOpen));
           });
-        });
-      }
 
-      /* ========== Scroll behavior (hide on down, show on up) ========== */
+          document.addEventListener('click', (e) => {
+            if (!ddWrap.contains(e.target)) {
+              ddWrap.classList.remove('open');
+              ddToggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+
+          ddMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => {
+              ddWrap.classList.remove('open');
+              ddToggle.setAttribute('aria-expanded', 'false');
+            });
+          });
+        }
+      }, 100);
+
+      /* ========== Scroll behavior ========== */
       const navbarEl = document.querySelector('.clover-navbar, .navbar-glass');
       let lastScrollTop = 0;
       if (navbarEl) {
@@ -282,9 +284,9 @@
 
           const maxScroll = document.body.scrollHeight - window.innerHeight;
           if (scrollTop > lastScrollTop && scrollTop < maxScroll - 10) {
-            navbarEl.style.top = "-100px";   // hide while scrolling down
+            navbarEl.style.top = "-100px";
           } else if (scrollTop < lastScrollTop - 5) {
-            navbarEl.style.top = "0";        // show on meaningful upward scroll
+            navbarEl.style.top = "0";
           }
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
         });
@@ -295,10 +297,9 @@
     })
     .then(res => res.text())
     .then(data => {
-      // Inject footer component
       document.getElementById("footer").innerHTML = data;
 
-      /* ========== AOS (on-demand) ========== */
+      // AOS (Animations)
       const aosCSS = document.createElement("link");
       aosCSS.rel = "stylesheet";
       aosCSS.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
@@ -329,6 +330,7 @@
     })
     .catch(err => console.error("Layout load error:", err));
 </script>
+
 
 
 
