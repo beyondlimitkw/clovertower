@@ -332,59 +332,36 @@ a.text-decoration-none.text-reset {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Mobile Fixes (cleaned up) --- */
 /* --- Responsive: mobile --- */
+
 @media (max-width: 991px) {
-  /* ...existing styles... */
+  #navbarMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
 
-  .dropdown {
-    position: static;
+  #navbarMenu li {
+    margin-bottom: 0.5rem;
+  }
+
+  #navbarMenu a,
+  #navbarMenu button {
     width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    padding: 0.5rem;
   }
 
-  .dropdown-menu-3col {
-    display: none;
-    position: static;
-    background: #fafafa;
-    border-top: 1px solid #eee;
-    padding: 0.75rem 1rem;
-    margin-top: 0.5rem;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem 1rem;
-    box-shadow: none;
-    border-radius: 0;
-    min-width: 0;
-  }
-
-  .dropdown.open .dropdown-menu-3col {
-    display: grid;
-  }
-
-  .dropdown-menu-3col a {
-    display: block;
-    padding: 0.5rem 0.75rem;
-    color: #222;
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 6px;
-  }
-
-  .dropdown-menu-3col a:hover {
-    background: #f4f6f7;
-  }
-
-  .clover-navbar a.nav-link, 
-  .clover-navbar .dropdown-toggle {
-    color: #222;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0.35rem 0.6rem;
-    border-radius: 8px;
-  }
-
-  .clover-navbar a.nav-link:hover,
-  .clover-navbar .dropdown-toggle:hover {
-    background: #f4f6f7;
-    color: #2D9F40;
+  /* Optional: Smooth dropdown open */
+  .clover-navbar {
+    position: relative;
   }
 }

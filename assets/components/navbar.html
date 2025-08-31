@@ -9,35 +9,35 @@
     <button class="nav-toggle" id="navbarToggle" aria-expanded="false" aria-controls="navbarMenu">☰</button>
 
     <!-- Collapsible nav (used in both desktop and mobile) -->
-    <ul class="nav-section right" id="navbarMenu" hidden>
+    <ul id="navbarMenu" hidden>
       <li><a class="nav-link" href="/index.html">Home</a></li>
       <li><a class="nav-link" href="/doctors.html">Doctors</a></li>
       <li><a class="nav-link" href="/clinics.html">Clinics</a></li>
       <li><a class="nav-link" href="/clinic_types.html">Clinic Types</a></li>
-      <li class="dropdown">
-        <a href="#" class="dropdown-toggle nav-link" id="specialtiesToggle" aria-expanded="false">Specialties</a>
-        <div class="dropdown-menu-3col" id="specialtiesDropdown">
-          <a class="dropdown-item" href="/specialty.html#dentistry">Dentistry</a>
-          <a class="dropdown-item" href="/specialty.html#pediatrics">Pediatrics</a>
-          <a class="dropdown-item" href="/specialty.html#urology">Urology</a>
-          <a class="dropdown-item" href="/specialty.html#ent">ENT</a>
-          <a class="dropdown-item" href="/specialty.html#otology">Otology</a>
-          <a class="dropdown-item" href="/specialty.html#plastic-surgery">Plastic Surgery</a>
-          <a class="dropdown-item" href="/specialty.html#gastroenterology">Gastroenterology</a>
-          <a class="dropdown-item" href="/specialty.html#mental-health">Mental Health</a>
-          <a class="dropdown-item" href="/specialty.html#surgery">Surgery</a>
-          <a class="dropdown-item" href="/specialty.html#allergy">Allergy</a>
-          <a class="dropdown-item" href="/specialty.html#internal-medicine">Internal Medicine</a>
-          <a class="dropdown-item" href="/specialty.html#geriatric-medicine">Geriatric Medicine</a>
-          <a class="dropdown-item" href="/specialty.html#eye-and-vision">Eye and Vision</a>
-          <a class="dropdown-item" href="/specialty.html#orthopedics">Orthopedics</a>
-          <a class="dropdown-item" href="/specialty.html#neurology">Neurology</a>
-          <a class="dropdown-item" href="/specialty.html#rheumatology">Rheumatology</a>
-          <a class="dropdown-item" href="/specialty.html#oncology">Oncology</a>
-          <a class="dropdown-item" href="/specialty.html#dermatology">Dermatology</a>
-          <a class="dropdown-item" href="/specialty.html#endocrinology">Endocrinology</a>
-          <a class="dropdown-item" href="/specialty.html#nephrology">Nephrology</a>
-        </div>
+      <li class="dropdown mobile-dropdown">
+        <button id="mobileSpecialtiesToggle">Specialties ▾</button>
+        <ul id="mobileSpecialtiesDropdown" hidden>
+          <li><a class="dropdown-item" href="/specialty.html#dentistry">Dentistry</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#pediatrics">Pediatrics</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#urology">Urology</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#ent">ENT</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#otology">Otology</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#plastic-surgery">Plastic Surgery</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#gastroenterology">Gastroenterology</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#mental-health">Mental Health</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#surgery">Surgery</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#allergy">Allergy</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#internal-medicine">Internal Medicine</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#geriatric-medicine">Geriatric Medicine</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#eye-and-vision">Eye and Vision</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#orthopedics">Orthopedics</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#neurology">Neurology</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#rheumatology">Rheumatology</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#oncology">Oncology</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#dermatology">Dermatology</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#endocrinology">Endocrinology</a></li>
+          <li><a class="dropdown-item" href="/specialty.html#nephrology">Nephrology</a></li>
+        </ul>
       </li>
       <li><a class="nav-link" href="/services.html">Services</a></li>
       <li><a class="nav-link" href="/about.html">About</a></li>
