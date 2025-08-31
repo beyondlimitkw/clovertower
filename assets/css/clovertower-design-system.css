@@ -332,65 +332,59 @@ a.text-decoration-none.text-reset {
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 991.98px) {
-  /* On mobile the grid becomes: left links | logo | hamburger */
-  .clover-navbar .nav-container {
-    grid-template-columns: 1fr auto auto;
+/* --- Mobile Fixes (cleaned up) --- */
+/* --- Responsive: mobile --- */
+@media (max-width: 991px) {
+  /* ...existing styles... */
+
+  .dropdown {
+    position: static;
+    width: 100%;
   }
 
-  .nav-toggle { 
-    display: inline-flex; 
-    border: 0; 
-    background: transparent; 
-    font-size: 1.4rem; 
-    line-height: 1; 
-  }
-
-  /* Hidden by default; your script removes [hidden] to open */
-  #navbarMenu[hidden] { display: none; }
-
-  #navbarMenu {
-    position: absolute;
-    right: 1rem;
-    top: 100%;
-    background: #fff;
-    border-radius: 12px;
+  .dropdown-menu-3col {
+    display: none;
+    position: static;
+    background: #fafafa;
+    border-top: 1px solid #eee;
     padding: 0.75rem 1rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-    display: block;        /* becomes a vertical list */
-    z-index: 1000;
+    margin-top: 0.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    box-shadow: none;
+    border-radius: 0;
+    min-width: 0;
   }
-  .nav-section.right { display: block; }
-  .nav-section.right li { margin: 0.25rem 0; }
-}
 
-.dropdown { position: relative; }
-.dropdown-grid {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 120%;
-  min-width: 520px;
-  background: #fff;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
-  z-index: 1000;
-  grid-template-columns: repeat(3, minmax(140px, 1fr));
-  gap: 0.5rem 1rem;
-}
-.dropdown.open .dropdown-grid { display: grid; }
+  .dropdown.open .dropdown-menu-3col {
+    display: grid;
+  }
 
-.clover-navbar a.nav-link, 
-.clover-navbar .dropdown-toggle {
-  color: #222;
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.35rem 0.6rem;
-  border-radius: 8px;
-}
-.clover-navbar a.nav-link:hover,
-.clover-navbar .dropdown-toggle:hover {
-  background: #f4f6f7;
-  color: #2D9F40;
+  .dropdown-menu-3col a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: #222;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 6px;
+  }
+
+  .dropdown-menu-3col a:hover {
+    background: #f4f6f7;
+  }
+
+  .clover-navbar a.nav-link, 
+  .clover-navbar .dropdown-toggle {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+  }
+
+  .clover-navbar a.nav-link:hover,
+  .clover-navbar .dropdown-toggle:hover {
+    background: #f4f6f7;
+    color: #2D9F40;
+  }
 }

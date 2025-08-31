@@ -114,10 +114,10 @@
   fetch("../assets/components/navbar.html")
     .then(res => res.text())
     .then(data => {
-      // Inject navbar component
+      // Inject navbar
       document.getElementById("navbar").innerHTML = data;
 
-      /* ========== Active link ========== */
+      /* ===== Highlight current page ===== */
       const current = window.location.pathname.split("/").pop() || "index.html";
       document.querySelectorAll(".nav-link").forEach(link => {
         if (link.getAttribute("href")?.endsWith(current)) {
@@ -125,8 +125,8 @@
         }
       });
 
-      /* ========== Mobile hamburger ========== */
-      const menu   = document.getElementById('navbarMenu');
+      /* ===== Mobile hamburger toggle ===== */
+      const menu = document.getElementById('navbarMenu');
       const toggle = document.getElementById('navbarToggle');
       if (toggle && menu) {
         toggle.addEventListener('click', () => {
@@ -136,7 +136,6 @@
           toggle.setAttribute('aria-expanded', String(isHidden));
         });
 
-        // Close menu after clicking a link
         menu.querySelectorAll('a').forEach(a => {
           a.addEventListener('click', () => {
             menu.setAttribute('hidden', '');
@@ -144,7 +143,6 @@
           });
         });
 
-        // Close if resizing to desktop
         let lastIsMobile = window.innerWidth <= 991;
         window.addEventListener('resize', () => {
           const isMobile = window.innerWidth <= 991;
@@ -156,19 +154,21 @@
         });
       }
 
-      /* ========== Specialties dropdown (delayed to ensure element exists) ========== */
+      /* ===== Specialties Dropdown Toggle ===== */
       setTimeout(() => {
         const ddToggle = document.getElementById('specialtiesToggle');
         const ddWrap   = ddToggle?.closest('.dropdown');
         const ddMenu   = document.getElementById('specialtiesDropdown');
 
         if (ddToggle && ddWrap && ddMenu) {
+          // Toggle on click
           ddToggle.addEventListener('click', (e) => {
             e.preventDefault();
             const nowOpen = ddWrap.classList.toggle('open');
             ddToggle.setAttribute('aria-expanded', String(nowOpen));
           });
 
+          // Close on outside click
           document.addEventListener('click', (e) => {
             if (!ddWrap.contains(e.target)) {
               ddWrap.classList.remove('open');
@@ -176,6 +176,7 @@
             }
           });
 
+          // Close on link click
           ddMenu.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', () => {
               ddWrap.classList.remove('open');
@@ -183,9 +184,9 @@
             });
           });
         }
-      }, 100);
+      }, 200); // Delay to ensure HTML is injected
 
-      /* ========== Scroll behavior ========== */
+      /* ===== Scroll effect ===== */
       const navbarEl = document.querySelector('.clover-navbar, .navbar-glass');
       let lastScrollTop = 0;
       if (navbarEl) {
@@ -208,14 +209,13 @@
         });
       }
 
-      // Continue: load footer next
+      /* ===== Footer + AOS ===== */
       return fetch("../assets/components/footer.html");
     })
     .then(res => res.text())
     .then(data => {
       document.getElementById("footer").innerHTML = data;
 
-      // AOS (Animations)
       const aosCSS = document.createElement("link");
       aosCSS.rel = "stylesheet";
       aosCSS.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
@@ -246,6 +246,7 @@
     })
     .catch(err => console.error("Layout load error:", err));
 </script>
+
 
 
 
