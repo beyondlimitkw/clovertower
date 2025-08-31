@@ -147,8 +147,16 @@ p {
   gap: 7rem;
 }
 
-.nav-section.left  { display: flex; justify-content: flex-start; gap: 1rem; }
-.nav-section.right { display: flex; justify-content: flex-end;   gap: 1rem; }
+/* Force removal of list bullets in navbar */
+.clover-navbar ul,
+.clover-navbar li,
+.clover-navbar .dropdown-menu-3col,
+.clover-navbar .dropdown-menu-3col li {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 
 .nav-logo { display: flex; justify-content: center; }
 .nav-logo img { height: 56px; display: block; }
@@ -203,6 +211,48 @@ p {
   z-index: 1001;
 }
 .clover-navbar .dropdown.open .dropdown-menu-3col { display: grid; }
+
+/* --- Specialties Dropdown (simple stacked) --- */
+#specialtiesDropdownWrapper {
+  position: relative;
+}
+
+#specialtiesDropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  min-width: 200px;
+  padding: 0.5rem 0;
+  z-index: 1001;
+}
+
+#specialtiesDropdownWrapper.open #specialtiesDropdown {
+  display: flex;
+}
+
+#specialtiesDropdown li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#specialtiesDropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--dark-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+#specialtiesDropdown a:hover {
+  background-color: var(--mint-green);
+  color: var(--clover-green);
+}
 
 @media (min-width: 992px) {
   /* Hide the hamburger on desktop */
@@ -267,6 +317,15 @@ p {
 
   /* Optional: shrink logo a bit on mobile */
   .nav-logo img { height: 48px; }
+
+  #specialtiesDropdown {
+  position: static;
+  box-shadow: none;
+  background: #f9f9f9;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0;
+}
+
 }
 
 
