@@ -217,19 +217,7 @@ p {
   position: relative;
 }
 
-#specialtiesDropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  display: none;
-  flex-direction: column;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-  min-width: 200px;
-  padding: 0.5rem 0;
-  z-index: 1001;
-}
+
 
 #specialtiesDropdownWrapper.open #specialtiesDropdown {
   display: flex;
@@ -317,15 +305,6 @@ p {
 
   /* Optional: shrink logo a bit on mobile */
   .nav-logo img { height: 48px; }
-
-  #specialtiesDropdown {
-  position: static;
-  box-shadow: none;
-  background: #f9f9f9;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0;
-}
-
 }
 
 
@@ -422,5 +401,63 @@ a.text-decoration-none.text-reset {
   /* Optional: Smooth dropdown open */
   .clover-navbar {
     position: relative;
+  }
+}
+
+/* ===== SPECIALTIES DROPDOWN FIX ===== */
+
+/* Hide it by default */
+#specialtiesDropdown {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  z-index: 1000;
+}
+
+/* When open, display it */
+#specialtiesDropdown.open {
+  display: flex;
+}
+
+/* Specialty links */
+#specialtiesDropdown li {
+  list-style: none;
+}
+
+#specialtiesDropdown a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--dark-text);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+#specialtiesDropdown a:hover {
+  background-color: var(--mint-green);
+  color: var(--clover-green);
+}
+
+@media (max-width: 991px) {
+  #specialtiesDropdown {
+    position: static;
+    box-shadow: none;
+    background: #f9f9f9;
+    border-radius: 0;
+    margin: 0;
+    padding: 0.5rem 1rem;
+  }
+
+  #specialtiesDropdown.open {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #specialtiesDropdown a {
+    padding: 0.5rem;
   }
 }
