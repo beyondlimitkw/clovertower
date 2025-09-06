@@ -185,14 +185,18 @@ p {
 
 /* Far-right hamburger (hidden on desktop) */
 .navbar-toggle {
-  display: none;
   background: none;
-  border: 0;
-  font-size: 28px;
-  line-height: 1;
+  border: none;
+  padding: 0.25rem;
+  color: var(--clover-green);
   cursor: pointer;
-  margin-left: 12px;
+  display: none;
+  align-items: center;
 }
+.navbar-toggle svg rect {
+  transition: all 0.3s ease;
+}
+
 
 /* Dropdown base (desktop) */
 .clover-navbar .dropdown { position: relative; }

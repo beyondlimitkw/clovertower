@@ -6,7 +6,14 @@
     </a>
 
     <!-- Hamburger button -->
-    <button class="nav-toggle" id="navbarToggle" aria-expanded="false" aria-controls="navbarMenu">☰</button>
+    <button class="navbar-toggle" id="hamburgerToggle" aria-label="Toggle navigation">
+      <svg width="28" height="28" viewBox="0 0 100 80" fill="currentColor">
+        <rect width="100" height="10"></rect>
+        <rect y="30" width="100" height="10"></rect>
+        <rect y="60" width="100" height="10"></rect>
+      </svg>
+    </button>
+    
 
     <!-- Collapsible nav (used in both desktop and mobile) -->
     <ul id="navbarMenu" hidden>
@@ -15,7 +22,7 @@
       <li><a class="nav-link" href="/clinics.html">Clinics</a></li>
       <li><a class="nav-link" href="/clinic_types.html">Clinic Types</a></li>
       <li class="dropdown" id="specialtiesDropdownWrapper">
-        <a href="#" class="nav-link dropdown-toggle" id="specialtiesToggle" aria-expanded="false">Specialties</a>
+        <a href="javascript:void(0)" class="nav-link dropdown-toggle" id="specialtiesToggle" aria-expanded="false">Specialties</a>
         <ul class="dropdown-content" id="specialtiesDropdown">
           <li><a class="dropdown-item" href="/specialty.html#dentistry">Dentistry</a></li>
           <li><a class="dropdown-item" href="/specialty.html#pediatrics">Pediatrics</a></li>

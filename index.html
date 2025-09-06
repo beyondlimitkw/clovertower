@@ -340,18 +340,18 @@
       /* ========== Specialties dropdown (delayed to ensure element exists) ========== */
       const specialtiesToggle = document.getElementById("specialtiesToggle");
       const specialtiesDropdown = document.getElementById("specialtiesDropdown");
-        
+          
       if (specialtiesToggle && specialtiesDropdown) {
         specialtiesToggle.addEventListener("click", (e) => {
-          e.preventDefault();
-          const isOpen = specialtiesDropdown.classList.toggle("open");
-          specialtiesToggle.setAttribute("aria-expanded", String(isOpen));
+          e.preventDefault(); // Prevents scrolling to top
+          e.stopPropagation(); // Prevents event bubbling which might close navbar
+          specialtiesDropdown.classList.toggle("open");
         });
       
+        // Close specialties if click outside
         document.addEventListener("click", (e) => {
           if (!specialtiesDropdown.contains(e.target) && e.target !== specialtiesToggle) {
             specialtiesDropdown.classList.remove("open");
-            specialtiesToggle.setAttribute("aria-expanded", "false");
           }
         });
       }
