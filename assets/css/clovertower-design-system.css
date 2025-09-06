@@ -184,6 +184,15 @@ p {
 .nav-logo img { display: block; height: 60px; }
 
 /* Far-right hamburger (hidden on desktop) */
+.navbar .nav-link.dropdown-toggle {
+  background: none;
+  border: none;
+  color: inherit;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
 .navbar-toggle {
   background: none;
   border: none;

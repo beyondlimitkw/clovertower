@@ -318,10 +318,13 @@
         });
 
         // Close menu after clicking a link
-        menu.querySelectorAll('a').forEach(a => {
-          a.addEventListener('click', () => {
-            menu.setAttribute('hidden', '');
-            toggle.setAttribute('aria-expanded', 'false');
+        menu.querySelectorAll('a, button').forEach(el => {
+          el.addEventListener('click', (e) => {
+            // Don't close the menu if the click was on the specialties toggle
+            if (el.id !== "specialtiesToggle") {
+              menu.setAttribute('hidden', '');
+              toggle.setAttribute('aria-expanded', 'false');
+            }
           });
         });
 
@@ -340,7 +343,7 @@
       /* ========== Specialties dropdown (delayed to ensure element exists) ========== */
       const specialtiesToggle = document.getElementById("specialtiesToggle");
       const specialtiesDropdown = document.getElementById("specialtiesDropdown");
-          
+
       if (specialtiesToggle && specialtiesDropdown) {
         specialtiesToggle.addEventListener("click", (e) => {
           e.preventDefault(); // Prevents scrolling to top
