@@ -111,132 +111,127 @@
 
 <div id="footer"></div>
 <script>
-  fetch("../assets/components/navbar.html")
-    .then(res => res.text())
-    .then(data => {
-      // Inject navbar component
-      document.getElementById("navbar").innerHTML = data;
+(async () => {
+  "use strict";
 
-      /* ========== Active link ========== */
-      const current = window.location.pathname.split("/").pop() || "index.html";
-      document.querySelectorAll(".nav-link").forEach(link => {
-        if (link.getAttribute("href")?.endsWith(current)) {
-          link.classList.add("active");
+  /* ---------- Load fragments with fallback paths ---------- */
+  const loadInto = async (selector, candidates) => {
+    for (const url of candidates) {
+      try {
+        const res = await fetch(url, { cache: "no-cache" });
+        if (res.ok) {
+          const html = await res.text();
+          const host = document.querySelector(selector);
+          if (host) { host.innerHTML = html; return; }
         }
-      });
+      } catch (e) { /* try next path */ }
+    }
+    throw new Error(`Failed to load ${selector} from ${candidates.join(", ")}`);
+  };
 
-      /* ========== Mobile hamburger ========== */
-      const menu   = document.getElementById('navbarMenu');
-      const toggle = document.getElementById('navbarToggle');
-      if (toggle && menu) {
-        toggle.addEventListener('click', () => {
-          const isHidden = menu.hasAttribute('hidden');
-          if (isHidden) menu.removeAttribute('hidden');
-          else menu.setAttribute('hidden', '');
-          toggle.setAttribute('aria-expanded', String(isHidden));
-        });
+  const navPaths = [
+    "../assets/components/navbar.html",
+    "assets/components/navbar.html",
+    "/assets/components/navbar.html"
+  ];
+  const footerPaths = [
+    "../assets/components/footer.html",
+    "assets/components/footer.html",
+    "/assets/components/footer.html"
+  ];
 
-        // Close menu after clicking a link
-        menu.querySelectorAll('a').forEach(a => {
-          a.addEventListener('click', () => {
-            menu.setAttribute('hidden', '');
-            toggle.setAttribute('aria-expanded', 'false');
-          });
-        });
+  /* ---------- Inject navbar ---------- */
+  await loadInto("#navbar", navPaths);
 
-        // Close if resizing to desktop
-        let lastIsMobile = window.innerWidth <= 991;
-        window.addEventListener('resize', () => {
-          const isMobile = window.innerWidth <= 991;
-          if (!isMobile && lastIsMobile) {
-            menu.setAttribute('hidden', '');
-            toggle.setAttribute('aria-expanded', 'false');
-          }
-          lastIsMobile = isMobile;
-        });
+  /* ---------- Active link (robust for root & subpaths) ---------- */
+  const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  document.querySelectorAll(".clover-navbar .nav-link[href]").forEach(link => {
+    const href = (link.getAttribute("href") || "").toLowerCase();
+    if (href.split("/").pop() === current) link.classList.add("active");
+  });
+
+  /* ---------- Mega dropdown (desktop hover, mobile click via Bootstrap) ---------- */
+  const isDesktop = () => matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  document.querySelectorAll(".dropdown-mega").forEach(mega => {
+    const toggle = mega.querySelector('[data-bs-toggle="dropdown"]');
+    const menu   = mega.querySelector(".dropdown-menu");
+    if (!toggle || !menu) return;
+
+    const open  = () => { if (!isDesktop()) return; toggle.setAttribute("aria-expanded","true");  menu.classList.add("show"); };
+    const close = () => { if (!isDesktop()) return; toggle.setAttribute("aria-expanded","false"); menu.classList.remove("show"); };
+
+    mega.addEventListener("mouseenter", open);
+    mega.addEventListener("mouseleave", close);
+    document.addEventListener("click", (e) => { if (isDesktop() && !mega.contains(e.target)) close(); });
+  });
+
+  /* ---------- ESC closes any open dropdown (desktop) ---------- */
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".dropdown-menu.show").forEach(m => m.classList.remove("show"));
+    }
+  });
+
+  /* ---------- Scroll behavior (add scrolled class + smart hide) ---------- */
+  const navbarEl = document.querySelector(".clover-navbar, .navbar-glass");
+  let lastScrollTop = 0;
+  if (navbarEl) {
+    window.addEventListener("scroll", () => {
+      const y = window.pageYOffset || document.documentElement.scrollTop;
+
+      // Style change (shadow, tighter padding) via CSS on .navbar-scrolled
+      if (y > 50) navbarEl.classList.add("navbar-scrolled");
+      else navbarEl.classList.remove("navbar-scrolled");
+
+      // Slide up on scroll down, slide back on scroll up
+      const maxScroll = document.body.scrollHeight - window.innerHeight;
+      if (y > lastScrollTop && y < maxScroll - 10) {
+        navbarEl.style.top = "-100px";
+      } else if (y < lastScrollTop - 5) {
+        navbarEl.style.top = "0";
       }
+      lastScrollTop = y <= 0 ? 0 : y;
+    });
+  }
 
-      /* ========== Specialties dropdown (delayed to ensure element exists) ========== */
-      const specialtiesToggle = document.getElementById("specialtiesToggle");
-      const specialtiesDropdown = document.getElementById("specialtiesDropdown");
-      const specialtiesWrapper = document.getElementById("specialtiesDropdownWrapper");
-          
-      if (specialtiesToggle && specialtiesDropdown && specialtiesWrapper) {
-        specialtiesToggle.addEventListener("click", (e) => {
-          e.preventDefault();
-          const isOpen = specialtiesWrapper.classList.toggle("open");
-          specialtiesToggle.setAttribute("aria-expanded", String(isOpen));
-        });
-      
-        document.addEventListener("click", (e) => {
-          if (!specialtiesWrapper.contains(e.target)) {
-            specialtiesWrapper.classList.remove("open");
-            specialtiesToggle.setAttribute("aria-expanded", "false");
-          }
-        });
-      }
+  /* ---------- Inject footer ---------- */
+  await loadInto("#footer", footerPaths);
 
-      /* ========== Scroll behavior ========== */
-      const navbarEl = document.querySelector('.clover-navbar, .navbar-glass');
-      let lastScrollTop = 0;
-      if (navbarEl) {
-        window.addEventListener('scroll', () => {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  /* ---------- Optional: AOS auto-load if any aos-* utility classes exist ---------- */
+  const needsAOS = !!document.querySelector('[class*="aos-"]');
+  if (needsAOS) {
+    const aosCSS = document.createElement("link");
+    aosCSS.rel = "stylesheet";
+    aosCSS.href = "https://unpkg.com/aos@2.3.4/dist/aos.css";
+    document.head.appendChild(aosCSS);
 
-          if (scrollTop > 50) {
-            navbarEl.classList.add('scrolled');
-          } else {
-            navbarEl.classList.remove('scrolled');
-          }
-
-          const maxScroll = document.body.scrollHeight - window.innerHeight;
-          if (scrollTop > lastScrollTop && scrollTop < maxScroll - 10) {
-            navbarEl.style.top = "-100px";
-          } else if (scrollTop < lastScrollTop - 5) {
-            navbarEl.style.top = "0";
-          }
-          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        });
-      }
-
-      // Continue: load footer next
-      return fetch("../assets/components/footer.html");
-    })
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById("footer").innerHTML = data;
-
-      // AOS (Animations)
-      const aosCSS = document.createElement("link");
-      aosCSS.rel = "stylesheet";
-      aosCSS.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
-      document.head.appendChild(aosCSS);
-
-      const aosJS = document.createElement("script");
-      aosJS.src = "https://unpkg.com/aos@2.3.1/dist/aos.js";
-      aosJS.onload = () => {
-        const aosMap = {
-          "aos-fade": "fade",
-          "aos-fade-up": "fade-up",
-          "aos-fade-down": "fade-down",
-          "aos-fade-left": "fade-left",
-          "aos-fade-right": "fade-right",
-          "aos-zoom-in": "zoom-in",
-          "aos-zoom-out": "zoom-out",
-          "aos-slide-up": "slide-up",
-          "aos-slide-left": "slide-left"
-        };
-        Object.keys(aosMap).forEach(cls => {
-          document.querySelectorAll(`.${cls}`).forEach(el => {
-            el.setAttribute("data-aos", aosMap[cls]);
-          });
-        });
-        AOS.init({ duration: 700, easing: 'ease-out-cubic', once: false });
+    const aosJS = document.createElement("script");
+    aosJS.src = "https://unpkg.com/aos@2.3.4/dist/aos.js";
+    aosJS.onload = () => {
+      const aosMap = {
+        "aos-fade": "fade",
+        "aos-fade-up": "fade-up",
+        "aos-fade-down": "fade-down",
+        "aos-fade-left": "fade-left",
+        "aos-fade-right": "fade-right",
+        "aos-zoom-in": "zoom-in",
+        "aos-zoom-out": "zoom-out",
+        "aos-slide-up": "slide-up",
+        "aos-slide-left": "slide-left"
       };
-      document.body.appendChild(aosJS);
-    })
-    .catch(err => console.error("Layout load error:", err));
+      Object.keys(aosMap).forEach(cls => {
+        document.querySelectorAll(`.${cls}`).forEach(el => {
+          el.setAttribute("data-aos", aosMap[cls]);
+        });
+      });
+      AOS.init({ duration: 700, easing: "ease-out-cubic", once: false });
+    };
+    document.body.appendChild(aosJS);
+  }
+})();
 </script>
+
 
 
 

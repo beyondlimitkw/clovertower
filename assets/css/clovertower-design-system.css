@@ -474,3 +474,81 @@ a.text-decoration-none.text-reset {
     padding: 0.5rem;
   }
 }
+
+.clover-navbar .navbar-brand img {
+  height: 60px;
+  max-height: 60px;
+}
+/* ===== Navbar polish ===== */
+.clover-navbar {
+  backdrop-filter: saturate(1.2) blur(8px);
+  -webkit-backdrop-filter: saturate(1.2) blur(8px);
+  transition: box-shadow .25s ease, background-color .25s ease, transform .3s ease;
+  z-index: 1030;
+}
+
+.clover-navbar .nav-link {
+  padding: .75rem 1rem;
+  font-weight: 500;
+}
+
+/* Active underline */
+.clover-navbar .nav-link.active {
+  position: relative;
+}
+.clover-navbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: .4rem;
+  height: 2px;
+  background: var(--clover-green, #2D9F40);
+  border-radius: 2px;
+}
+
+/* Mega dropdown */
+.dropdown-mega .dropdown-menu.mega-menu {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+  min-width: min(85vw, 880px);
+  max-width: 92vw;
+  margin-top: .75rem;
+}
+
+/* Center align the mega menu under its toggle */
+@media (min-width: 992px) {
+  .dropdown-mega { position: static; }
+  .dropdown-mega .dropdown-menu.mega-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Comfortable column spacing */
+.dropdown-mega .dropdown-item {
+  padding: .5rem .75rem;
+  border-radius: 8px;
+}
+.dropdown-mega .dropdown-item:hover {
+  background: rgba(45,159,64,.08);
+}
+
+/* Mobile: fall back to single column full-width dropdown */
+@media (max-width: 991.98px) {
+  .dropdown-mega .dropdown-menu.mega-menu {
+    min-width: 100%;
+    max-width: 100%;
+    transform: none !important;
+    left: 0 !important;
+    right: 0 !important;
+    border-radius: 12px;
+  }
+}
+
+/* Optional: taller logo per your preference */
+.clover-navbar .navbar-brand img {
+  height: 60px; /* set 100px if you want it larger */
+  max-height: 60px;
+}

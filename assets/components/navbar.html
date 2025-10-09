@@ -1,45 +1,68 @@
-<nav class="clover-navbar fixed-top" id="mainNavbar">
-  <div class="nav-container">
-    <!-- Center logo -->
-    <a href="/index.html" class="nav-logo" aria-label="Clover Tower">
-      <img src="/assets/images/logos/clover-tower.svg" alt="Clover Tower Logo" style="height:60px;">
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top clover-navbar">
+  <div class="container-fluid px-4">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" href="/index.html">
+      <img src="/assets/images/logos/clover-tower.svg" alt="Clover Tower" height="64" class="me-2">
     </a>
 
-    <!-- Hamburger button -->
-    <button id="navbarToggle" aria-expanded="false" type="button">
-      <i class="fas fa-bars"></i>
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
+      aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Nav Links -->
+    <div class="collapse navbar-collapse justify-content-center" id="navbarMain">
+      <ul class="navbar-nav align-items-center gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/doctors.html">Doctors</a></li>
+        <li class="nav-item"><a class="nav-link" href="/clinics.html">Clinics</a></li>
+        <li class="nav-item"><a class="nav-link" href="/clinic_types.html">Clinic Types</a></li>
 
-    <!-- Collapsible nav (used in both desktop and mobile) -->
-    <ul id="navbarMenu" hidden>
-      <li><a class="nav-link" href="/index.html">Home</a></li>
-      <li><a class="nav-link" href="/doctors.html">Doctors</a></li>
-      <li><a class="nav-link" href="/clinics.html">Clinics</a></li>
-      <li><a class="nav-link" href="/clinic_types.html">Clinic Types</a></li>
-      <li class="dropdown" id="specialtiesDropdownWrapper">
-        <button class="nav-link dropdown-toggle" id="specialtiesToggle" aria-expanded="false">Specialties</button>
-        <ul class="dropdown-content" id="specialtiesDropdown">
-          <li><a class="dropdown-item" href="/specialty.html#dentistry">Dentistry</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#pediatrics">Pediatrics</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#urology">Urology</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#ent">ENT</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#otology">Otology</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#plastic-surgery">Plastic Surgery</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#gastroenterology">Gastroenterology</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#mental-health">Mental Health</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#surgery">Surgery</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#allergy">Allergy</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#internal-medicine">Internal Medicine</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#geriatric-medicine">Geriatric Medicine</a></li>
-          <li><a class="dropdown-item" href="/specialty.html#eyes-vision">Eye and Vision</a></li>
+        <!-- Mega Dropdown -->
+        <li class="nav-item dropdown dropdown-mega">
+          <a class="nav-link dropdown-toggle" href="#" id="specialtiesMenu" role="button"
+             data-bs-toggle="dropdown" aria-expanded="false">Specialties</a>
+                
+          <div class="dropdown-menu mega-menu p-4 border-0 shadow-lg" aria-labelledby="specialtiesMenu">
+            <div class="row g-3">
+              <div class="col-12 col-md-6 col-lg-4">
+                <ul class="list-unstyled mb-0">
+                  <li><a class="dropdown-item" href="/specialty.html#dentistry">Dentistry</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#pediatrics">Pediatrics</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#urology">Urology</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#ent">ENT</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#otology">Otology</a></li>
+                </ul>
+              </div>
+            
+              <div class="col-12 col-md-6 col-lg-4">
+                <ul class="list-unstyled mb-0">
+                  <li><a class="dropdown-item" href="/specialty.html#plastic-surgery">Plastic Surgery</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#gastroenterology">Gastroenterology</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#mental-health">Mental Health</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#surgery">Surgery</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#allergy">Allergy</a></li>
+                </ul>
+              </div>
+            
+              <div class="col-12 col-md-6 col-lg-4">
+                <ul class="list-unstyled mb-0">
+                  <li><a class="dropdown-item" href="/specialty.html#internal-geriatric-medicine">Internal &amp; Geriatric Medicine</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#eyes-vision">Eyes &amp; Vision</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#physical-therapy">Physical Therapy</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#radiology">Radiology</a></li>
+                  <li><a class="dropdown-item" href="/specialty.html#laboratory">Laboratory</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </li>
 
-          <li><a class="dropdown-item" href="/specialty.html#dermatology">Dermatology</a></li>
-        </ul>
-      </li>
-      <li><a class="nav-link" href="/services.html">Services</a></li>
-      <li><a class="nav-link" href="/about.html">About</a></li>
-      <li><a class="nav-link" href="/contact.html">Contact</a></li>
-    </ul>
+        <li class="nav-item"><a class="nav-link" href="/services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
