@@ -552,3 +552,40 @@ a.text-decoration-none.text-reset {
   height: 60px; /* set 100px if you want it larger */
   max-height: 60px;
 }
+/* --- MOBILE: make the Specialties dropdown flow inside the collapse --- */
+@media (max-width: 991.98px) {
+  /* Turn off absolute positioning & centering math */
+  .clover-navbar .dropdown-mega .dropdown-menu.mega-menu {
+    position: static;           /* <— key fix */
+    inset: auto !important;     /* cancel top/left/right set for desktop */
+    transform: none !important; /* cancel translateX */
+    width: 100%;
+    max-width: 100%;
+    margin: .25rem 0 0 0;
+    padding: .25rem 0 .5rem;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;    /* optional: inherits navbar bg */
+  }
+
+  /* Column grid becomes a simple stacked list */
+  .clover-navbar .dropdown-mega .row { margin: 0; }
+  .clover-navbar .dropdown-mega .col-12 { padding: 0; }
+
+  /* Comfortable indent for items under "Specialties" */
+  .clover-navbar .dropdown-mega .dropdown-item {
+    padding: .5rem 0 .5rem 1.25rem;
+  }
+}
+
+/* --- DESKTOP: keep the centered mega menu and no gap under the toggle --- */
+@media (min-width: 992px) {
+  .clover-navbar .dropdown-mega { position: static; }
+  .clover-navbar .dropdown-mega .dropdown-menu.mega-menu {
+    left: 50%;
+    top: 100%;
+    margin-top: 0;                 /* removes the hover gap */
+    transform: translateX(-50%);
+  }
+}
