@@ -183,20 +183,40 @@
   });
 
   /* ---------- Mega dropdown (desktop hover, mobile click via Bootstrap) ---------- */
+  // === Mega dropdown with hover intent (desktop) ===
   const isDesktop = () => matchMedia("(hover: hover) and (pointer: fine)").matches;
-
+  
   document.querySelectorAll(".dropdown-mega").forEach(mega => {
     const toggle = mega.querySelector('[data-bs-toggle="dropdown"]');
     const menu   = mega.querySelector(".dropdown-menu");
     if (!toggle || !menu) return;
-
+  
+    let openTimer, closeTimer;
+  
     const open  = () => { if (!isDesktop()) return; toggle.setAttribute("aria-expanded","true");  menu.classList.add("show"); };
     const close = () => { if (!isDesktop()) return; toggle.setAttribute("aria-expanded","false"); menu.classList.remove("show"); };
+  
+    mega.addEventListener("mouseenter", () => {
+      clearTimeout(closeTimer);
+      openTimer = setTimeout(open, 80);
+    });
 
-    mega.addEventListener("mouseenter", open);
-    mega.addEventListener("mouseleave", close);
-    document.addEventListener("click", (e) => { if (isDesktop() && !mega.contains(e.target)) close(); });
+  mega.addEventListener("mouseleave", () => {
+    clearTimeout(openTimer);
+    closeTimer = setTimeout(close, 180);
   });
+
+  // Keep open while inside the panel
+  menu.addEventListener("mouseenter", () => clearTimeout(closeTimer));
+  menu.addEventListener("mouseleave", () => closeTimer = setTimeout(close, 180));
+
+  // Click outside closes on desktop — but ignore clicks inside the menu
+  document.addEventListener("click", (e) => {
+    if (!isDesktop()) return;
+    if (!e.target.closest(".dropdown-mega")) close();
+  });
+});
+
 
   /* ---------- ESC closes any open dropdown (desktop) ---------- */
   document.addEventListener("keydown", (e) => {
