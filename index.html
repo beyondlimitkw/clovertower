@@ -334,17 +334,17 @@
   /* ---------- Mega dropdown (desktop hover, mobile click via Bootstrap) ---------- */
   // === Mega dropdown with hover intent (desktop) ===
   const isDesktop = () => matchMedia("(hover: hover) and (pointer: fine)").matches;
-  
+
   document.querySelectorAll(".dropdown-mega").forEach(mega => {
     const toggle = mega.querySelector('[data-bs-toggle="dropdown"]');
     const menu   = mega.querySelector(".dropdown-menu");
     if (!toggle || !menu) return;
-  
+
     let openTimer, closeTimer;
-  
+
     const open  = () => { if (!isDesktop()) return; toggle.setAttribute("aria-expanded","true");  menu.classList.add("show"); };
     const close = () => { if (!isDesktop()) return; toggle.setAttribute("aria-expanded","false"); menu.classList.remove("show"); };
-  
+
     mega.addEventListener("mouseenter", () => {
       clearTimeout(closeTimer);
       openTimer = setTimeout(open, 80);
@@ -441,6 +441,5 @@
 <script src="assets/js/card-loader.js"></script>
 <!-- Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoQwGQ7Z1gqEbdPp5ZmC5q5lvN4+2F9DkG1vPqJY0HI+Oat" crossorigin="anonymous"></script>
-</script>
 </body>
 </html>
