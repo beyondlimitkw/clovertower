@@ -589,3 +589,28 @@ a.text-decoration-none.text-reset {
     transform: translateX(-50%);
   }
 }
+/* Mobile: center every nav item *including* the dropdown toggle */
+@media (max-width: 991.98px) {
+  .clover-navbar .navbar-collapse .navbar-nav .nav-link {
+    display: inline-flex;           /* so text + caret act as one unit */
+    justify-content: center;        /* center horizontally */
+    align-items: center;            /* align baseline/caret neatly */
+    width: 100%;                    /* same width for all items */
+    text-align: center;             /* consistent centering */
+  }
+
+  /* Make the caret sit nicely to the right of the word */
+  .clover-navbar .navbar-nav .dropdown-toggle::after {
+    margin-left: .4rem;             /* small gap from text */
+    vertical-align: middle;         /* align with text baseline */
+    float: none;                    /* prevent weird left shifts */
+    position: static;               /* no absolute positioning */
+    transform: none;
+  }
+
+  /* Remove any leftover left padding that could nudge it */
+  .clover-navbar .navbar-nav .nav-item { 
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
