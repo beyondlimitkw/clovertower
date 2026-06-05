@@ -270,8 +270,10 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("homepageContactForm");
-    const successMsg = document.getElementById("homepageFormSuccess");
+    const form = document.getElementById("contactForm");
+    const successMsg = document.getElementById("formSuccess");
+    if (!form || !successMsg) return;
+
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       fetch(form.action, {
@@ -284,6 +286,9 @@
           successMsg.classList.remove("d-none");
           form.reset();
         }
+      })
+      .catch(() => {
+        form.submit();
       });
     });
   });
