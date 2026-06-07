@@ -1,8 +1,8 @@
-/* ===== CLOVER TOWER DESIGN SYSTEM ===== */
+/* ===== Clover Tower Design System ===== */
 
-/* --- Variables --- */
 :root {
   --clover-green: #2D9F40;
+  --clover-green-dark: #248534;
   --mint-green: #f2fdf7;
   --dark-text: #2A2A2A;
   --light-text: #6C757D;
@@ -14,16 +14,18 @@
   --hover-shadow: rgba(45, 159, 64, 0.25);
 }
 
-/* --- Typography --- */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
   color: var(--dark-text);
   line-height: 1.6;
-  padding-top: 0px;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   font-weight: 600;
   color: var(--clover-green);
 }
@@ -32,48 +34,22 @@ p {
   color: var(--light-text);
 }
 
-/* --- Section Spacing --- */
-.fullscreen-section {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.text-green {
+  color: var(--clover-green) !important;
 }
 
-/* --- Background Utilities --- */
-.bg-white { background-color: var(--white); }
-.bg-light-gray { background-color: #f9f9f9; }
-.bg-light-green { background-color: var(--mint-green); }
-
-/* --- Cards & Components --- */
-.card.card-glass {
-  background: rgba(255, 255, 255, 0.15) !important;
-  backdrop-filter: blur(10px) !important;
-  -webkit-backdrop-filter: blur(10px) !important;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
-  border: none !important;
-  border-radius: 1.5rem !important;
-  transition: all 0.35s ease-in-out !important;
-}
-.card.card-glass:hover {
-  transform: translateY(-5px) scale(1.04);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+.bg-white {
+  background-color: var(--white) !important;
 }
 
-.glass-hover {
-  transition: all 0.3s ease;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.bg-light-gray {
+  background-color: #f9f9f9 !important;
 }
 
-.glass-hover:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+.bg-light-green {
+  background-color: var(--mint-green) !important;
 }
 
-/* --- Buttons --- */
 .btn-brand {
   background-color: var(--clover-green);
   color: var(--white);
@@ -81,536 +57,74 @@ p {
   border-radius: 0.5rem;
   padding: 0.75rem 1.5rem;
 }
-.btn-brand:hover {
-  background-color: #248534;
-  color: white;
+
+.btn-brand:hover,
+.btn-brand:focus {
+  background-color: var(--clover-green-dark);
+  color: var(--white);
 }
+
 .btn-outline-brand {
   border: 2px solid var(--clover-green);
   color: var(--clover-green);
   border-radius: 0.5rem;
 }
-.btn-outline-brand:hover {
+
+.btn-outline-brand:hover,
+.btn-outline-brand:focus {
   background-color: var(--clover-green);
-  color: white;
+  color: var(--white);
 }
 
-/* --- Whatsapp Floating --- */
 .whatsapp-float {
   position: fixed;
-  bottom: 20px;
   right: 20px;
-  background: #2D9F40;
-  color: white;
-  border-radius: 50%;
-  padding: 15px;
-  font-size: 24px;
+  bottom: 20px;
   z-index: 999;
-}
-
-/* --- Banners & Icons --- */
-.banner-space {
-  padding-top: 0px;
-  padding-bottom: 40px;
-}
-.icon-circle {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(45, 159, 64, 0.1);
-  color: var(--clover-green);
-  font-size: 1.8rem;
-  display: flex;
+  display: inline-flex;
+  width: 56px;
+  height: 56px;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  background: var(--clover-green);
+  color: var(--white);
+  font-size: 24px;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
-}
-
-/* --- Core navbar alignment (desktop) --- */
-.clover-navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 32px;
-  background: #fff;
-  border-bottom: 1px solid #eee;
-  z-index: 1000;
-}
-
-.clover-navbar .nav-container {
-  max-width: 1300px;        /* adjust if you like */
-  margin: 0 auto;
-  padding: 0.75rem 1rem;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr; /* left | center logo | right */
-  align-items: center;
-  gap: 7rem;
-}
-
-/* Force removal of list bullets in navbar */
-.clover-navbar ul,
-.clover-navbar li,
-.clover-navbar .dropdown-menu-3col,
-.clover-navbar .dropdown-menu-3col li {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-
-.nav-logo { display: flex; justify-content: center; }
-.nav-logo img { height: 56px; display: block; }
-
-.clover-navbar .nav-section {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.clover-navbar .nav-left,
-.clover-navbar .nav-right { height: 100%; }
-
-.clover-navbar .nav-link { 
-  text-decoration: none; 
-  color: #222; 
-  font-weight: 500;
-}
-
-.clover-navbar .nav-link:hover { color: #2D9F40; }
-
-.nav-logo img { display: block; height: 60px; }
-
-/* Far-right hamburger (hidden on desktop) */
-.navbar .nav-link.dropdown-toggle {
-  background: none;
-  border: none;
-  color: inherit;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-}
-
-.navbar-toggle {
-  background: none;
-  border: none;
-  padding: 0.25rem;
+  border-radius: 50%;
+  background-color: rgba(45, 159, 64, 0.1);
   color: var(--clover-green);
-  cursor: pointer;
-  display: none;
-  align-items: center;
-}
-.navbar-toggle svg rect {
-  transition: all 0.3s ease;
+  font-size: 1.8rem;
 }
 
-
-/* Dropdown base (desktop) */
-.clover-navbar .dropdown { position: relative; }
-.clover-navbar .dropdown-menu-3col {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  min-width: 520px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-  grid-template-columns: repeat(3, 1fr);
-  gap: .5rem .75rem;
-  z-index: 1001;
-}
-.clover-navbar .dropdown.open .dropdown-menu-3col { display: grid; }
-
-/* --- Specialties Dropdown (simple stacked) --- */
-#specialtiesDropdownWrapper {
-  position: relative;
-}
-
-
-
-#specialtiesDropdownWrapper.open #specialtiesDropdown {
-  display: flex;
-}
-
-#specialtiesDropdown li {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-#specialtiesDropdown a {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: var(--dark-text);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-#specialtiesDropdown a:hover {
-  background-color: var(--mint-green);
-  color: var(--clover-green);
-}
-
-@media (min-width: 992px) {
-  /* Hide the hamburger on desktop */
-  .nav-toggle { display: none; }
-
-  /* Always show the right menu on desktop */
-  #navbarMenu {
-    display: flex !important;
-    position: static !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    gap: 1rem;
-  }
-  /* If the HTML still has "hidden", override it */
-  #navbarMenu[hidden] { display: flex !important; }
-}
-
-/* --- Responsive: mobile --- */
-@media (max-width: 991px) {
-  /* Keep logo centered by pushing groups out */
-  .clover-navbar { flex-wrap: wrap; }
-
-  .nav-left { order: 1; }
-  .nav-logo { order: 2; margin: 0 auto; }
-  .navbar-toggle { order: 3; display: block; }
-
-  /* Right menu becomes a collapsible panel full-width */
-  .nav-right {
-    order: 4;
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: .25rem;
-    background: #fff;
-    border-top: 1px solid #eee;
-    padding: .75rem 0;
-  }
-  /* hidden attribute used for initial state */
-  .nav-right[hidden] { display: none !important; }
-
-  .nav-right .nav-link { 
-    padding: .6rem 1rem; 
-    width: 100%;
-  }
-
-  /* Mobile dropdown becomes in-flow */
-  .clover-navbar .dropdown { width: 100%; }
-  .clover-navbar .dropdown-menu-3col {
-    position: static;
-    display: none;
-    box-shadow: none;
-    border-top: 1px solid #f1f1f1;
-    border-radius: 0;
-    min-width: 0;
-    grid-template-columns: 1fr 1fr;
-    padding: .5rem .75rem .75rem;
-    margin: 0 .5rem .25rem;
-    background: #fafafa;
-  }
-  .clover-navbar .dropdown.open .dropdown-menu-3col { display: grid; }
-
-  /* Optional: shrink logo a bit on mobile */
-  .nav-logo img { height: 48px; }
-}
-
-
-
-/* --- Specialty Title Underline --- */
 .specialty-header {
   position: relative;
   display: inline-block;
   padding-bottom: 10px;
   margin-bottom: 20px;
 }
+
 .specialty-header::after {
   content: "";
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
   bottom: 0;
   width: 60px;
   height: 3px;
+  border-radius: 2px;
   background-color: #50b394;
-  border-radius: 2px;
+  transform: translateX(-50%);
 }
 
-/* --- Section Dividers --- */
-.section-divider {
-  width: 80px;
-  height: 4px;
-  margin: 3rem auto;
-  border-radius: 3px;
-  background: #1fa463;
-}
-.section-divider.white { background-color: white; }
-.section-divider.green { background-color: #1fa463; }
-.section-divider.fade {
-  background: linear-gradient(to right, transparent, #1fa463, transparent);
-}
-
-/* --- Utility --- */
-a.text-decoration-none.text-reset {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: inherit;
-  text-decoration: none;
-}
-#doctorList, #clinicList {
+#doctorList,
+#clinicList {
   transition: opacity 0.4s ease;
-}
-
-/* --- Animations --- */
-@keyframes fadeInTop {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(5px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* --- Responsive: mobile --- */
-
-@media (max-width: 991px) {
-  #navbarMenu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-
-  #navbarMenu li {
-    margin-bottom: 0.5rem;
-  }
-
-  #navbarMenu a,
-  #navbarMenu button {
-    width: 100%;
-    text-align: left;
-    font-size: 1rem;
-    padding: 0.5rem;
-  }
-
-  /* Optional: Smooth dropdown open */
-  .clover-navbar {
-    position: relative;
-  }
-}
-
-/* ===== SPECIALTIES DROPDOWN FIX ===== */
-
-/* Hide it by default */
-#specialtiesDropdown {
-  position: absolute;
-  display: none;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  z-index: 1000;
-}
-
-/* When open, display it */
-#specialtiesDropdown.open {
-  display: flex;
-}
-
-/* Specialty links */
-#specialtiesDropdown li {
-  list-style: none;
-}
-
-#specialtiesDropdown a {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: var(--dark-text);
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-#specialtiesDropdown a:hover {
-  background-color: var(--mint-green);
-  color: var(--clover-green);
-}
-
-@media (max-width: 991px) {
-  #specialtiesDropdown {
-    position: static;
-    box-shadow: none;
-    background: #f9f9f9;
-    border-radius: 0;
-    margin: 0;
-    padding: 0.5rem 1rem;
-  }
-
-  #specialtiesDropdown.open {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #specialtiesDropdown a {
-    padding: 0.5rem;
-  }
-}
-
-.clover-navbar .navbar-brand img {
-  height: 60px;
-  max-height: 60px;
-}
-/* ===== Navbar polish ===== */
-.clover-navbar {
-  backdrop-filter: saturate(1.2) blur(8px);
-  -webkit-backdrop-filter: saturate(1.2) blur(8px);
-  transition: box-shadow .25s ease, background-color .25s ease, transform .3s ease;
-  z-index: 1030;
-}
-
-.clover-navbar .nav-link {
-  padding: .75rem 1rem;
-  font-weight: 500;
-}
-
-/* Active underline */
-.clover-navbar .nav-link.active {
-  position: relative;
-}
-.clover-navbar .nav-link.active::after {
-  content: "";
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: .4rem;
-  height: 2px;
-  background: var(--clover-green, #2D9F40);
-  border-radius: 2px;
-}
-
-/* Mega dropdown */
-.dropdown-mega .dropdown-menu.mega-menu {
-  border: none;
-  border-radius: 16px;
-  box-shadow: 0 18px 40px rgba(0,0,0,.12);
-  min-width: min(85vw, 880px);
-  max-width: 92vw;
-  margin-top: .75rem;
-}
-
-/* Center align the mega menu under its toggle */
-@media (min-width: 992px) {
-  .dropdown-mega { position: static; }
-  .dropdown-mega .dropdown-menu.mega-menu {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* Comfortable column spacing */
-.dropdown-mega .dropdown-item {
-  padding: .5rem .75rem;
-  border-radius: 8px;
-}
-.dropdown-mega .dropdown-item:hover {
-  background: rgba(45,159,64,.08);
-}
-
-/* Mobile: fall back to single column full-width dropdown */
-@media (max-width: 991.98px) {
-  .dropdown-mega .dropdown-menu.mega-menu {
-    min-width: 100%;
-    max-width: 100%;
-    transform: none !important;
-    left: 0 !important;
-    right: 0 !important;
-    border-radius: 12px;
-  }
-}
-
-/* Optional: taller logo per your preference */
-.clover-navbar .navbar-brand img {
-  height: 60px; /* set 100px if you want it larger */
-  max-height: 60px;
-}
-/* --- MOBILE: make the Specialties dropdown flow inside the collapse --- */
-@media (max-width: 991.98px) {
-  /* Turn off absolute positioning & centering math */
-  .clover-navbar .dropdown-mega .dropdown-menu.mega-menu {
-    position: static;           /* <— key fix */
-    inset: auto !important;     /* cancel top/left/right set for desktop */
-    transform: none !important; /* cancel translateX */
-    width: 100%;
-    max-width: 100%;
-    margin: .25rem 0 0 0;
-    padding: .25rem 0 .5rem;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;    /* optional: inherits navbar bg */
-  }
-
-  /* Column grid becomes a simple stacked list */
-  .clover-navbar .dropdown-mega .row { margin: 0; }
-  .clover-navbar .dropdown-mega .col-12 { padding: 0; }
-
-  /* Comfortable indent for items under "Specialties" */
-  .clover-navbar .dropdown-mega .dropdown-item {
-    padding: .5rem 0 .5rem 1.25rem;
-  }
-}
-
-/* --- DESKTOP: keep the centered mega menu and no gap under the toggle --- */
-@media (min-width: 992px) {
-  .clover-navbar .dropdown-mega { position: static; }
-  .clover-navbar .dropdown-mega .dropdown-menu.mega-menu {
-    left: 50%;
-    top: 100%;
-    margin-top: 0;                 /* removes the hover gap */
-    transform: translateX(-50%);
-  }
-}
-/* Mobile: center every nav item *including* the dropdown toggle */
-@media (max-width: 991.98px) {
-  .clover-navbar .navbar-collapse .navbar-nav .nav-link {
-    display: inline-flex;           /* so text + caret act as one unit */
-    justify-content: center;        /* center horizontally */
-    align-items: center;            /* align baseline/caret neatly */
-    width: 100%;                    /* same width for all items */
-    text-align: center;             /* consistent centering */
-  }
-
-  /* Make the caret sit nicely to the right of the word */
-  .clover-navbar .navbar-nav .dropdown-toggle::after {
-    margin-left: .4rem;             /* small gap from text */
-    vertical-align: middle;         /* align with text baseline */
-    float: none;                    /* prevent weird left shifts */
-    position: static;               /* no absolute positioning */
-    transform: none;
-  }
-
-  /* Remove any leftover left padding that could nudge it */
-  .clover-navbar .navbar-nav .nav-item { 
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
 }

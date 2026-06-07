@@ -1,0 +1,24 @@
+{
+  "name": "clovertower",
+  "version": "1.0.0",
+  "description": "Static HTML website for Clover Tower clinics, doctors, services, and contact pages.",
+  "main": "generate-ar-folders.js",
+  "scripts": {
+    "audit:visual": "node scripts/visual-audit.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beyondlimitkw/clovertower.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beyondlimitkw/clovertower/issues"
+  },
+  "homepage": "https://github.com/beyondlimitkw/clovertower#readme",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

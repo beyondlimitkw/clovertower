@@ -40,3 +40,18 @@ Shared navbar, footer, and AOS initialization are loaded through:
 
 - `assets/js/site-shell.js`
 
+## Visual QA
+
+Playwright is installed for local responsive layout checks. Start a static server first:
+
+```bash
+python3 -m http.server 4173
+```
+
+Then run the desktop/tablet/mobile audit:
+
+```bash
+cmd.exe /c npm run audit:visual
+```
+
+The audit writes screenshots and a JSON report to `audit-screenshots/`, which is ignored by git.

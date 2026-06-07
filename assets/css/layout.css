@@ -197,6 +197,9 @@ img {
 .fullscreen-section {
   min-height: calc(100vh - var(--navbar-height));
   min-height: calc(100svh - var(--navbar-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding-block: var(--section-y) !important;
 }
 
@@ -247,6 +250,15 @@ header {
 
 section {
   z-index: 1;
+}
+
+#footer {
+  overflow-x: clip;
+}
+
+#footer .row {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 header .carousel,
@@ -356,7 +368,7 @@ a.text-decoration-none.text-reset {
 @media (max-width: 575.98px) {
   .container,
   .container-fluid {
-    --bs-gutter-x: 1.25rem;
+    --bs-gutter-x: 1.5rem;
   }
 
   .card.card-glass {
