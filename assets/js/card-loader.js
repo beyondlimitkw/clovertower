@@ -13,7 +13,10 @@
  */
 function loadCards({ file, targetId, limit = null, filter = null, shuffle = false, prioritizeImages = false }) {
   fetch(file)
-    .then(res => res.text())
+    .then(res => {
+      if (!res.ok) throw new Error(`Failed to load ${file}`);
+      return res.text();
+    })
     .then(html => {
       const container = document.getElementById(targetId);
       if (!container) return;
@@ -64,5 +67,10 @@ function loadCards({ file, targetId, limit = null, filter = null, shuffle = fals
       cards.forEach(card => container.appendChild(card.cloneNode(true)));
 
       if (typeof AOS !== 'undefined') AOS.refresh();
+    })
+    .catch(error => {
+      console.error(error);
+      const container = document.getElementById(targetId);
+      if (container) container.innerHTML = "";
     });
 }

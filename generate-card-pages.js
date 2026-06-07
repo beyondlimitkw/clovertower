@@ -53,7 +53,7 @@ function buildSection({ containerId, marker }, cards) {
   const body = cards.map(card => card.trim()).join("\n");
   return [
     '<section class="container py-5">',
-    `  <div class="row g-4" id="${containerId}">`,
+    `  <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4" id="${containerId}">`,
     `    <!-- GENERATED:${marker}:start -->`,
     body,
     `    <!-- GENERATED:${marker}:end -->`,
@@ -64,7 +64,7 @@ function buildSection({ containerId, marker }, cards) {
 
 function replaceSection(html, config, section) {
   const generatedPattern = new RegExp(
-    `<section class="container py-5">\\s*<div class="row g-4" id="${config.containerId}">[\\s\\S]*?<!-- GENERATED:${config.marker}:start -->[\\s\\S]*?<!-- GENERATED:${config.marker}:end -->[\\s\\S]*?</div>\\s*</section>`
+    `<section class="container py-5">\\s*<div class="row(?: row-cols-[\\w-]+)* g-4" id="${config.containerId}">[\\s\\S]*?<!-- GENERATED:${config.marker}:start -->[\\s\\S]*?<!-- GENERATED:${config.marker}:end -->[\\s\\S]*?</div>\\s*</section>`
   );
 
   if (generatedPattern.test(html)) {
@@ -72,7 +72,7 @@ function replaceSection(html, config, section) {
   }
 
   const emptySection = new RegExp(
-    `<section class="container py-5">\\s*<div class="row g-4" id="${config.containerId}"></div>\\s*</section>`
+    `<section class="container py-5">\\s*<div class="row(?: row-cols-[\\w-]+)* g-4" id="${config.containerId}"></div>\\s*</section>`
   );
 
   if (!emptySection.test(html)) {

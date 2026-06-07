@@ -73,10 +73,10 @@
 </div>
 </header>
 <!-- Doctors Section -->
-<section class="section bg-light-gray fullscreen-section py-5 px-3">
+<section class="section bg-light-gray fullscreen-section home-card-section py-5 px-3">
   <div class="container">
     <h2 class="text-center text-green mb-4">Our Doctors</h2>
-    <div class="row g-4" id="homeDoctors"></div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4" id="homeDoctors"></div>
     <div class="text-center mt-3">
       <a href="doctors.html" class="btn btn-brand">View All Doctors</a>
     </div>
@@ -85,10 +85,10 @@
   
 
 <!-- Clinics Section -->
-<section class="section bg-white fullscreen-section py-5 px-3">
+<section class="section bg-white fullscreen-section home-card-section py-5 px-3">
   <div class="container">
     <h2 class="text-center text-green mb-4">Our Clinics</h2>
-    <div class="row g-4" id="homeClinics"></div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4" id="homeClinics"></div>
     <div class="text-center mt-3">
       <a href="clinics.html" class="btn btn-brand">View All Clinics</a>
     </div>
@@ -100,7 +100,7 @@
     loadCards({
       file: "assets/components/doctor-cards.html",
       targetId: "homeDoctors",
-      limit: 5,
+      limit: 4,
       filter: el => el.dataset.type === "doctor",
       shuffle: true,
       prioritizeImages: true
@@ -109,7 +109,7 @@
     loadCards({
       file: "assets/components/clinic-cards.html",
       targetId: "homeClinics",
-      limit: 5,
+      limit: 4,
       filter: el => el.dataset.type === "clinic",
       shuffle: true,
       prioritizeImages: true
@@ -121,8 +121,8 @@
 
   
 <!-- CTA -->
-<section class="section bg-light-green fullscreen-section py-5 px-3 text-white">
-<div class="text-center mt-5">
+<section class="section bg-light-green fullscreen-section home-cta-section py-5 px-3">
+<div class="container text-center">
 <h3 class="mb-4 aos-fade-up aos-fade-up" data-aos-delay="0">
       Welcome to Clover Tower
      </h3>
@@ -141,7 +141,7 @@
 </section>
 
 <!-- Services Section -->
-<section class="section bg-white fullscreen-section py-5 px-3">
+<section class="section bg-white fullscreen-section home-showcase-section py-5 px-3">
 <div class="container">
 <div class="text-center mb-5">
 <h2 class="fw-bold text-green aos-fade-up aos-fade-up" data-aos-delay="0">
@@ -189,7 +189,7 @@
 </div>
 </section>
 <!-- Clinic Types Section -->
-<section class="section bg-light-gray fullscreen-section py-5 px-3">
+<section class="section bg-light-gray fullscreen-section home-showcase-section py-5 px-3">
 <div class="container">
 <div class="text-center mb-5">
 <h2 class="fw-bold text-green aos-fade-up aos-fade-up" data-aos-delay="0">
