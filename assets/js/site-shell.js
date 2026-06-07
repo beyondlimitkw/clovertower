@@ -34,6 +34,9 @@
   await loadInto("#navbar", navPaths);
 
   const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
+  const isHome = current === "index.html" || location.pathname === "/";
+  if (isHome) document.body.classList.add("page-home");
+
   document.querySelectorAll(".clover-navbar .nav-link[href]").forEach(link => {
     const href = (link.getAttribute("href") || "").toLowerCase();
     if (href.split("/").pop() === current) link.classList.add("active");
@@ -91,23 +94,17 @@
   });
 
   const navbarEl = document.querySelector(".clover-navbar, .navbar-glass");
-  let lastScrollTop = 0;
 
   if (navbarEl) {
-    window.addEventListener("scroll", () => {
+    const updateNavbarState = () => {
       const y = window.pageYOffset || document.documentElement.scrollTop;
 
       if (y > 50) navbarEl.classList.add("navbar-scrolled");
       else navbarEl.classList.remove("navbar-scrolled");
+    };
 
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-      if (y > lastScrollTop && y < maxScroll - 10) {
-        navbarEl.style.top = "-100px";
-      } else if (y < lastScrollTop - 5) {
-        navbarEl.style.top = "0";
-      }
-      lastScrollTop = y <= 0 ? 0 : y;
-    });
+    updateNavbarState();
+    window.addEventListener("scroll", updateNavbarState, { passive: true });
   }
 
   await loadInto("#footer", footerPaths);
