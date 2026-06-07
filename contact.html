@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Explore clinics and medical services at Clover Tower, Jabriya." />
+  <meta name="description" content="Contact Clover Tower in Jabriya, Kuwait for clinic leasing inquiries, visitor support, location details, and general questions." />
   <meta name="keywords" content="Clover Tower, Mazaya, CloverCenter, مزايا, مركز كلوفر, عيادات الكويت, Doctors Kuwait" />
   <meta name="author" content="Beyond Limit Property Management" />
   <link rel="icon" href="assets/images/logos/clovertower_favicon.png" type="image/png" />
@@ -43,7 +43,7 @@
 <section class="section fullscreen-section py-5 px-3 bg-white py-5">
   <div class="container">
     <div class="text-center mb-5">
-      <h2 class="fw-bold aos-fade-up">Get in Touch</h2>
+      <h1 class="fw-bold aos-fade-up">Get in Touch</h1>
       <p class="text-muted aos-fade-up" data-aos-delay="100">For inquiries, leasing opportunities, or support, please use the form or contact details below.</p>
     </div>
     <div class="row gy-4 align-items-center">
@@ -51,16 +51,20 @@
       <div class="col-md-6 aos-fade-up" data-aos-delay="100">
         <form id="contactForm" action="https://formspree.io/f/xwpovddl" method="POST" class="border p-4 rounded-4 shadow-sm">
           <div class="mb-3">
-            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+            <label for="contactName" class="visually-hidden">Your Name</label>
+            <input id="contactName" type="text" name="name" class="form-control" placeholder="Your Name" required>
           </div>
           <div class="mb-3">
-            <input type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
+            <label for="contactPhone" class="visually-hidden">Phone Number</label>
+            <input id="contactPhone" type="tel" name="phone" class="form-control" placeholder="Phone Number" required>
           </div>
           <div class="mb-3">
-            <input type="email" name="email" class="form-control" placeholder="Your Email (optional)">
+            <label for="contactEmail" class="visually-hidden">Your Email (optional)</label>
+            <input id="contactEmail" type="email" name="email" class="form-control" placeholder="Your Email (optional)">
           </div>
           <div class="mb-3">
-            <textarea name="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
+            <label for="contactMessage" class="visually-hidden">Your Message</label>
+            <textarea id="contactMessage" name="message" class="form-control" placeholder="Your Message" rows="4" required></textarea>
           </div>
           <div id="formSuccess" class="alert alert-success d-none" role="alert">
             ✅ Your message has been sent. We'll get back to you shortly.
@@ -72,10 +76,12 @@
       <!-- Google Map -->
       <div class="col-md-6 aos-fade-up" data-aos-delay="200">
         <div class="ratio ratio-16x9 rounded-4 overflow-hidden shadow-sm">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3478.6234911753686!2d48.01252837555762!3d29.322718075295022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9d001a2dca33%3A0x82f550c4acb35197!2sClover%20tower!5e0!3m2!1sen!2skw!4v1744153712581!5m2!1sen!2skw
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3478.6234911753686!2d48.01252837555762!3d29.322718075295022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9d001a2dca33%3A0x82f550c4acb35197!2sClover%20tower!5e0!3m2!1sen!2skw!4v1744153712581!5m2!1sen!2skw"
+            title="Clover Tower location on Google Maps"
             width="100%" height="100%"
             style="border:0;"
-            loading="lazy">
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
       </div>
@@ -85,146 +91,32 @@
 
 <div id="footer"></div>
 <script>
-(async () => {
+(function () {
   "use strict";
 
-  /* ---------- Load fragments with fallback paths ---------- */
-  const loadInto = async (selector, candidates) => {
-    for (const url of candidates) {
+  const form = document.getElementById("contactForm");
+  const successMsg = document.getElementById("formSuccess");
+  if (form && successMsg) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
       try {
-        const res = await fetch(url, { cache: "no-cache" });
-        if (res.ok) {
-          const html = await res.text();
-          const host = document.querySelector(selector);
-          if (host) { host.innerHTML = html; return; }
-        }
-      } catch (e) { /* try next path */ }
-    }
-    throw new Error(`Failed to load ${selector} from ${candidates.join(", ")}`);
-  };
-
-  const navPaths = [
-    "../assets/components/navbar.html",
-    "assets/components/navbar.html",
-    "/assets/components/navbar.html"
-  ];
-  const footerPaths = [
-    "../assets/components/footer.html",
-    "assets/components/footer.html",
-    "/assets/components/footer.html"
-  ];
-
-  /* ---------- Inject navbar ---------- */
-  await loadInto("#navbar", navPaths);
-
-  /* ---------- Active link (robust for root & subpaths) ---------- */
-  const current = (location.pathname.split("/").pop() || "index.html").toLowerCase();
-  document.querySelectorAll(".clover-navbar .nav-link[href]").forEach(link => {
-    const href = (link.getAttribute("href") || "").toLowerCase();
-    if (href.split("/").pop() === current) link.classList.add("active");
-  });
-
-  /* ---------- Mega dropdown (desktop hover, mobile click via Bootstrap) ---------- */
-  // === Mega dropdown with hover intent (desktop) ===
-  const isDesktop = () => matchMedia("(hover: hover) and (pointer: fine)").matches;
-  
-  document.querySelectorAll(".dropdown-mega").forEach(mega => {
-    const toggle = mega.querySelector('[data-bs-toggle="dropdown"]');
-    const menu   = mega.querySelector(".dropdown-menu");
-    if (!toggle || !menu) return;
-  
-    let openTimer, closeTimer;
-  
-    const open  = () => { if (!isDesktop()) return; toggle.setAttribute("aria-expanded","true");  menu.classList.add("show"); };
-    const close = () => { if (!isDesktop()) return; toggle.setAttribute("aria-expanded","false"); menu.classList.remove("show"); };
-  
-    mega.addEventListener("mouseenter", () => {
-      clearTimeout(closeTimer);
-      openTimer = setTimeout(open, 80);
-    });
-
-  mega.addEventListener("mouseleave", () => {
-    clearTimeout(openTimer);
-    closeTimer = setTimeout(close, 180);
-  });
-
-  // Keep open while inside the panel
-  menu.addEventListener("mouseenter", () => clearTimeout(closeTimer));
-  menu.addEventListener("mouseleave", () => closeTimer = setTimeout(close, 180));
-
-  // Click outside closes on desktop — but ignore clicks inside the menu
-  document.addEventListener("click", (e) => {
-    if (!isDesktop()) return;
-    if (!e.target.closest(".dropdown-mega")) close();
-  });
-});
-
-
-  /* ---------- ESC closes any open dropdown (desktop) ---------- */
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      document.querySelectorAll(".dropdown-menu.show").forEach(m => m.classList.remove("show"));
-    }
-  });
-
-  /* ---------- Scroll behavior (add scrolled class + smart hide) ---------- */
-  const navbarEl = document.querySelector(".clover-navbar, .navbar-glass");
-  let lastScrollTop = 0;
-  if (navbarEl) {
-    window.addEventListener("scroll", () => {
-      const y = window.pageYOffset || document.documentElement.scrollTop;
-
-      // Style change (shadow, tighter padding) via CSS on .navbar-scrolled
-      if (y > 50) navbarEl.classList.add("navbar-scrolled");
-      else navbarEl.classList.remove("navbar-scrolled");
-
-      // Slide up on scroll down, slide back on scroll up
-      const maxScroll = document.body.scrollHeight - window.innerHeight;
-      if (y > lastScrollTop && y < maxScroll - 10) {
-        navbarEl.style.top = "-100px";
-      } else if (y < lastScrollTop - 5) {
-        navbarEl.style.top = "0";
-      }
-      lastScrollTop = y <= 0 ? 0 : y;
-    });
-  }
-
-  /* ---------- Inject footer ---------- */
-  await loadInto("#footer", footerPaths);
-
-  /* ---------- Optional: AOS auto-load if any aos-* utility classes exist ---------- */
-  const needsAOS = !!document.querySelector('[class*="aos-"]');
-  if (needsAOS) {
-    const aosCSS = document.createElement("link");
-    aosCSS.rel = "stylesheet";
-    aosCSS.href = "https://unpkg.com/aos@2.3.4/dist/aos.css";
-    document.head.appendChild(aosCSS);
-
-    const aosJS = document.createElement("script");
-    aosJS.src = "https://unpkg.com/aos@2.3.4/dist/aos.js";
-    aosJS.onload = () => {
-      const aosMap = {
-        "aos-fade": "fade",
-        "aos-fade-up": "fade-up",
-        "aos-fade-down": "fade-down",
-        "aos-fade-left": "fade-left",
-        "aos-fade-right": "fade-right",
-        "aos-zoom-in": "zoom-in",
-        "aos-zoom-out": "zoom-out",
-        "aos-slide-up": "slide-up",
-        "aos-slide-left": "slide-left"
-      };
-      Object.keys(aosMap).forEach(cls => {
-        document.querySelectorAll(`.${cls}`).forEach(el => {
-          el.setAttribute("data-aos", aosMap[cls]);
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { "Accept": "application/json" }
         });
-      });
-      AOS.init({ duration: 700, easing: "ease-out-cubic", once: false });
-    };
-    document.body.appendChild(aosJS);
+
+        if (!res.ok) throw new Error("Form submission failed");
+        successMsg.classList.remove("d-none");
+        form.reset();
+      } catch (error) {
+        form.submit();
+      }
+    });
   }
 })();
 </script>
+<script src="assets/js/site-shell.js"></script>
 
 
 
