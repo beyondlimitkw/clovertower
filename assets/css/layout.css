@@ -39,29 +39,30 @@ img {
 }
 
 .page-home .clover-navbar:not(.navbar-scrolled) {
-  border-bottom-color: rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.18) !important;
-  box-shadow: none !important;
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.68) !important;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08) !important;
 }
 
 .page-home .clover-navbar:not(.navbar-scrolled) .nav-link {
-  color: #fff;
-  text-shadow: 0 1px 12px rgba(15, 23, 42, 0.35);
+  color: #163025;
+  font-weight: 600;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .page-home .clover-navbar:not(.navbar-scrolled) .nav-link:hover,
 .page-home .clover-navbar:not(.navbar-scrolled) .nav-link:focus,
 .page-home .clover-navbar:not(.navbar-scrolled) .nav-link.active {
-  color: #fff;
+  color: var(--clover-green, #2D9F40);
 }
 
 .page-home .clover-navbar:not(.navbar-scrolled) .navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.45);
-  background-color: rgba(255, 255, 255, 0.22);
+  border-color: rgba(22, 48, 37, 0.28);
+  background-color: rgba(255, 255, 255, 0.68);
 }
 
 .page-home .clover-navbar:not(.navbar-scrolled) .navbar-toggler-icon {
-  filter: invert(1);
+  filter: none;
 }
 
 .clover-navbar .navbar-brand {
